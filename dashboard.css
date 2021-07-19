@@ -1,0 +1,66 @@
+body {
+  font-family: "Lato", sans-serif;
+}
+
+.navbar-custom{
+  background-color: #DEFFD9;
+}
+
+.sidenav label a{
+  width: 126px;
+  height: 109px;
+  margin-bottom: 50px;
+}
+
+.sidenav button{
+  position: fixed;
+  bottom: 20px;
+}
+
+.sidenav {
+  height: 100%;
+  width: 250px;
+  position: fixed;
+  left: 38px;
+  top: 268px;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #DEFFD9;
+  overflow-x: hidden;
+  padding-top: 10px;
+}
+
+.sidenav a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  width: 126px;
+  height: 39px;
+  margin-top: 10px;
+
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 28px;
+
+  color: #979797;
+  display: block;
+}
+
+.main {
+  margin-left: 240px; /* Same as the width of the sidenav */
+  font-size: 28px; /* Increased text to enable scrolling */
+  padding: 0px 10px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+
+.text-footer{
+  margin-top: 100%;
+  margin-left: 50%;
+  color:#BEBEBE;
+}
