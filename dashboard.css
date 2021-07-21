@@ -5,7 +5,7 @@ body {
   height: 100%;
 }
 
-.sidenav button{
+.sidenav button {
   margin-top: 100%;
 }
 
@@ -19,7 +19,7 @@ body {
   z-index: 1;
   top: 0;
   left: 0;
-  background-color: #DEFFD9;
+  background-color: #deffd9;
   overflow-x: hidden;
   padding-top: 10px;
 }
@@ -48,21 +48,25 @@ body {
 }
 
 @media screen and (max-height: 450px) {
-  .sidenav {padding-top: 15px;}
-  .sidenav a {font-size: 18px;}
+  .sidenav {
+    padding-top: 15px;
+  }
+  .sidenav a {
+    font-size: 18px;
+  }
 }
 
-.text-footer{
+.text-footer {
   position: absolute;
   margin-left: 50%;
   margin-top: 42%;
-  color:#BEBEBE;
+  color: #bebebe;
 }
 
 .main .box1 {
-  width:1150px;
-  height:400px;
-  background: #D9FFF0;
+  width: 1150px;
+  height: 400px;
+  background: #d9fff0;
   border-radius: 10px;
 
   position: absolute;
@@ -79,15 +83,15 @@ body {
   color: #000000;
 }
 
-.main .box1 img{
+.main .box1 img {
   position: absolute;
   left: 700px;
 }
 
-.main .box2{
-  width:150px;
-  height:150px;
-  background: #D9FFF0;
+.main .box2 {
+  width: 150px;
+  height: 150px;
+  background: #d9fff0;
   border-radius: 10px;
 
   position: absolute;
@@ -95,6 +99,7 @@ body {
   top: 520px;
 
   font-family: Poppins;
+  text-align: center;
   font-style: normal;
   font-weight: 600;
   font-size: 18px;
@@ -104,10 +109,10 @@ body {
   color: #000000;
 }
 
-.main .box3{
-  width:150px;
-  height:150px;
-  background: #D9FFF0;
+.main .box3 {
+  width: 150px;
+  height: 150px;
+  background: #d9fff0;
   border-radius: 10px;
 
   position: absolute;
@@ -115,6 +120,7 @@ body {
   top: 520px;
 
   font-family: Poppins;
+  text-align: center;
   font-style: normal;
   font-weight: 600;
   font-size: 18px;
@@ -124,10 +130,10 @@ body {
   color: #000000;
 }
 
-.main .box4{
-  width:150px;
-  height:150px;
-  background: #D9FFF0;
+.main .box4 {
+  width: 150px;
+  height: 150px;
+  background: #d9fff0;
   border-radius: 10px;
 
   position: absolute;
@@ -135,6 +141,7 @@ body {
   top: 520px;
 
   font-family: Poppins;
+  text-align: center;
   font-style: normal;
   font-weight: 600;
   font-size: 18px;
@@ -144,10 +151,10 @@ body {
   color: #000000;
 }
 
-.main .box5{
-  width:150px;
-  height:150px;
-  background: #D9FFF0;
+.main .box5 {
+  width: 150px;
+  height: 150px;
+  background: #d9fff0;
   border-radius: 10px;
 
   position: absolute;
@@ -155,6 +162,7 @@ body {
   top: 520px;
 
   font-family: Poppins;
+  text-align: center;
   font-style: normal;
   font-weight: 600;
   font-size: 18px;
@@ -164,10 +172,10 @@ body {
   color: #000000;
 }
 
-.main .box6{
-  width:150px;
-  height:150px;
-  background: #D9FFF0;
+.main .box6 {
+  width: 150px;
+  height: 150px;
+  background: #d9fff0;
   border-radius: 10px;
 
   position: absolute;
@@ -175,6 +183,7 @@ body {
   top: 520px;
 
   font-family: Poppins;
+  text-align: center;
   font-style: normal;
   font-weight: 600;
   font-size: 18px;
