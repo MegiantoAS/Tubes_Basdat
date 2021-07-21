@@ -1,0 +1,58 @@
+body {
+    font-family: "Lato", sans-serif;
+    position: absolute;
+    width: 1500px;
+    height: 100%;
+}
+  
+.sidenav label a{
+    color: black;
+}
+  
+ .sidenav button{
+    margin-top: 100%;
+}
+  
+.sidenav {
+    height: 100%;
+    width: 250px;
+    position: absolute;
+    left: 38px;
+    top: 268px;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #DEFFD9;
+    overflow-x: hidden;
+    padding-top: 10px;
+}
+  
+.sidenav a {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    width: 126px;
+    height: 39px;
+    margin-top: 10px;
+  
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 28px;
+  
+    color: #979797;
+    display: block;
+}
+
+.text-footer{
+    position: absolute;
+    margin-left: 50%;
+    margin-top: 42%;
+    color:#BEBEBE;
+}
+
+.main {
+    margin-left: 240px; /* Same as the width of the sidenav */
+    font-size: 28px; /* Increased text to enable scrolling */
+    padding: 0px 10px;
+  }

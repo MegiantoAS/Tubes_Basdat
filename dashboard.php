@@ -7,12 +7,13 @@
 </head>
 <body>
     <div class="sidenav">
-        <label><a href="#"><img src="images/Group 11.png"></a></label>
-        <a href="#">Customer</a>
-        <a href="#">Pegawai</a>
-        <a href="#">Barang</a>
-        <a href="#">Cabang</a>
-        <a href="#">Pembayaran</a>
+        <a href="dashboard.php"><img src="images/Group 11.png"></a><br>
+        <br><br><br><br><br>
+        <a href="customer.php">Customer</a>
+        <a href="pegawai.php">Pegawai</a>
+        <a href="barang.php">Barang</a>
+        <a href="cabang.php">Cabang</a>
+        <a href="pembayaran.php">Pembayaran</a>
         <button type="button" class="btn btn-danger mx-5 col-8">Logout</button>
     </div>
     
