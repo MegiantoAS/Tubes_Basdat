@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 5.0.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 19 Jul 2021 pada 03.26
+-- Waktu pembuatan: 22 Jul 2021 pada 09.48
 -- Versi server: 10.4.11-MariaDB
--- Versi PHP: 7.4.4
+-- Versi PHP: 7.2.28
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -90,6 +91,9 @@ CREATE TABLE `customer` (
 --
 
 INSERT INTO `customer` (`idcustomer`, `namacustomer`, `alamat`, `notelp`) VALUES
+('12345', 'ridhwann', 'bandung', '09789689987'),
+('12346', 'megi', 'bandung', '0897986768'),
+('12347', 'dean', 'bandung', '8987687989'),
 ('17534', 'Angga Smit', 'Cicahem', '083394405896'),
 ('17556', 'a.hendra', 'jl dipatiukur no 3', '08940589456'),
 ('17649', 'Asep Supriatna', 'rancabuaya', '085983475090'),
@@ -105,19 +109,21 @@ INSERT INTO `customer` (`idcustomer`, `namacustomer`, `alamat`, `notelp`) VALUES
 CREATE TABLE `pegawai` (
   `idpegawai` char(2) NOT NULL,
   `idcabang` varchar(5) NOT NULL,
-  `namapegawai` varchar(35) NOT NULL
+  `namapegawai` varchar(35) NOT NULL,
+  `username` varchar(50) NOT NULL,
+  `password` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data untuk tabel `pegawai`
 --
 
-INSERT INTO `pegawai` (`idpegawai`, `idcabang`, `namapegawai`) VALUES
-('10', 'C45', 'Rahmat'),
-('12', 'C45', 'Lusi'),
-('13', 'C45', 'Nanda'),
-('14', 'C45', 'Susan'),
-('16', 'D22', 'Yogi');
+INSERT INTO `pegawai` (`idpegawai`, `idcabang`, `namapegawai`, `username`, `password`) VALUES
+('10', 'C45', 'Rahmat', 'Rahmat', 'd3d9446802a44259755d38e6d163e820'),
+('12', 'C45', 'Lusi', 'Lusi', 'c20ad4d76fe97759aa27a0c99bff6710'),
+('13', 'C45', 'Nanda', 'Nanda', 'c51ce410c124a10e0db5e4b97fc2af39'),
+('14', 'C45', 'Susan', 'Susan', 'aab3238922bcc25a6f606eb525ffdc56'),
+('16', 'D22', 'Yogi', 'Yogi', 'c74d97b01eae257e44aa9d5bade97baf');
 
 -- --------------------------------------------------------
 
