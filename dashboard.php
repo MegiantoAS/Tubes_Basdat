@@ -27,7 +27,7 @@ $dataPembayaran = mysqli_fetch_assoc($result);
 
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="dashboard.css?v=1.9">
+    <link rel="stylesheet" href="dashboard.css?v=2.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <title>MyLaundry | Dashboard</title>
 </head>
@@ -62,19 +62,19 @@ $dataPembayaran = mysqli_fetch_assoc($result);
             <button type="button" class="btn btn-success col-2">Backup Data</button>
         </div>
         <div class="box2">
-            <p>Terdapat</p><?php echo $dataCustomer['total']; ?><p>Orang Customer</p>
+            <p>Terdapat</p><label><br><?php echo $dataCustomer['total']; ?></label><p><br>Orang Customer</p>
         </div>
         <div class="box3">
-            <p>Terdapat</p><?php echo $dataPegawai['total']; ?><p>Orang Pegawai</p>
+            <p>Terdapat</p><label><br><?php echo $dataPegawai['total']; ?></label><p><br>Orang Pegawai</p>
         </div>
         <div class="box4">
-            <p>Terdapat</p><?php echo $dataBarang['total']; ?><p>Data Barang</p>
+            <p>Terdapat</p><label><br><?php echo $dataBarang['total']; ?></label><p><br>Data Barang</p>
         </div>
         <div class="box5">
-            <p>Terdapat</p><?php echo $dataCabang['total']; ?><p>Data Cabang</p>
+            <p>Terdapat</p><label><br><?php echo $dataCabang['total']; ?></label><p><br>Data Cabang</p>
         </div>
         <div class="box6">
-            <p>Terdapat</p><?php echo $dataPembayaran['total']; ?><p>Data Pembayaran</p>
+            <p>Terdapat</p><label><br><?php echo $dataPembayaran['total']; ?></label><p><br>Data Pembayaran</p>
         </div>
     </div>
     <div class="text-footer">

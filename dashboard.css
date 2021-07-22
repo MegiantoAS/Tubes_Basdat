@@ -90,7 +90,7 @@ body {
 
 .main .box2 {
   width: 150px;
-  height: 150px;
+  height: 160px;
   background: #d9fff0;
   border-radius: 10px;
 
@@ -111,7 +111,7 @@ body {
 
 .main .box3 {
   width: 150px;
-  height: 150px;
+  height: 160px;
   background: #d9fff0;
   border-radius: 10px;
 
@@ -132,7 +132,7 @@ body {
 
 .main .box4 {
   width: 150px;
-  height: 150px;
+  height: 160px;
   background: #d9fff0;
   border-radius: 10px;
 
@@ -153,7 +153,7 @@ body {
 
 .main .box5 {
   width: 150px;
-  height: 150px;
+  height: 160px;
   background: #d9fff0;
   border-radius: 10px;
 
@@ -174,7 +174,7 @@ body {
 
 .main .box6 {
   width: 150px;
-  height: 150px;
+  height: 160px;
   background: #d9fff0;
   border-radius: 10px;
 
@@ -191,4 +191,24 @@ body {
   letter-spacing: -0.017em;
 
   color: #000000;
+}
+
+.main .box2 label{
+  font-size: 40px;
+}
+
+.main .box3 label{
+  font-size: 40px;
+}
+
+.main .box4 label{
+  font-size: 40px;
+}
+
+.main .box5 label{
+  font-size: 40px;
+}
+
+.main .box6 label{
+  font-size: 40px;
 }
