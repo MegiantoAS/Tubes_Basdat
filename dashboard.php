@@ -1,10 +1,37 @@
+<?php
+include_once("connection.php");
+
+// get count customer
+$result = $mysqli->query("SELECT COUNT(*) as `total` FROM `customer`");
+$dataCustomer = mysqli_fetch_assoc($result);
+
+// get count pegawai
+$result = $mysqli->query("SELECT COUNT(*) as `total` FROM `pegawai`");
+$dataPegawai = mysqli_fetch_assoc($result);
+
+// get count barang
+$result = $mysqli->query("SELECT COUNT(*) as `total` FROM `barang`");
+$dataBarang = mysqli_fetch_assoc($result);
+
+// get count cabang
+$result = $mysqli->query("SELECT COUNT(*) as `total` FROM `cabang`");
+$dataCabang = mysqli_fetch_assoc($result);
+
+// get count pembayaran
+$result = $mysqli->query("SELECT COUNT(*) as `total` FROM `pembayaran`");
+$dataPembayaran = mysqli_fetch_assoc($result);
+
+?>
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="dashboard.css?v=1.9">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">  
+    <link rel="stylesheet" href="dashboard.css?v=2.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>MyLaundry | Dashboard</title>
 </head>
+
 <body>
     <div class="sidenav">
         <a href="dashboard.php"><img src="images/Group 11.png"></a><br>
@@ -16,42 +43,43 @@
         <a href="pembayaran.php">Pembayaran</a>
         <button type="button" class="btn btn-danger mx-5 col-8">Logout</button>
     </div>
-    
+
     <div class="main">
         <nav class="navbar navbar-expand-lg navbar-light bg-custom">
-        <div class="container-fluid">
-            <div class="collapse navbar-collapse" id="navbarText">
-            <ul class="navbar-nav ms-auto">
-                <li class="nav-item">
-                <a class="nav-link" href="#"><img src="images/iconprofile.png" width="30px"></a>
-                </li>
-            </ul>
+            <div class="container-fluid">
+                <div class="collapse navbar-collapse" id="navbarText">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#"><img src="images/iconprofile.png" width="30px"></a>
+                        </li>
+                    </ul>
+                </div>
             </div>
-        </div>
         </nav>
 
-            <div class="box1">
-                Box 1 <br><img src="images/box1.png" width="300px">
-                <button type="button" class="btn btn-success col-2">Backup Data</button>
-            </div>
-            <div class="box2">
-                Box 2
-            </div>
-            <div class="box3">
-                Box 3
-            </div>
-            <div class="box4">
-                Box 4
-            </div>
-            <div class="box5">
-                Box 5
-            </div>
-            <div class="box6">
-                Box 6
-            </div>
-    </div>
-        <div class="text-footer">
-            Copyright © 2021. MyLaundry. All RIght Reserved
+        <div class="box1">
+            Box 1 <br><img src="images/box1.png" width="300px">
+            <button type="button" class="btn btn-success col-2">Backup Data</button>
         </div>
+        <div class="box2">
+            <p>Terdapat</p><label><br><?php echo $dataCustomer['total']; ?></label><p><br>Orang Customer</p>
+        </div>
+        <div class="box3">
+            <p>Terdapat</p><label><br><?php echo $dataPegawai['total']; ?></label><p><br>Orang Pegawai</p>
+        </div>
+        <div class="box4">
+            <p>Terdapat</p><label><br><?php echo $dataBarang['total']; ?></label><p><br>Data Barang</p>
+        </div>
+        <div class="box5">
+            <p>Terdapat</p><label><br><?php echo $dataCabang['total']; ?></label><p><br>Data Cabang</p>
+        </div>
+        <div class="box6">
+            <p>Terdapat</p><label><br><?php echo $dataPembayaran['total']; ?></label><p><br>Data Pembayaran</p>
+        </div>
+    </div>
+    <div class="text-footer">
+        Copyright © 2021. MyLaundry. All RIght Reserved
+    </div>
 </body>
-</html> 
+
+</html>
