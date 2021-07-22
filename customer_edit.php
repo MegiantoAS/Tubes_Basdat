@@ -1,18 +1,6 @@
 <?php
 include_once("connection.php");
-if (isset($_POST['update'])) {
 
-    $idcustomer = $_POST['idcustomer'];
-    $namacustomer = $_POST['nama'];
-    $alamat = $_POST['alamat'];
-    $notelp = $_POST['notelp'];
-
-    // update user data
-    $result = mysqli_query($mysqli, "UPDATE customer SET nama='$namacustomer',alamat='$alamat', notelp='$notelp' WHERE idcustomer='$idcustomer'");
-
-    // Redirect to homepage to display updated user in list
-    header("Location: customer.php");
-}
 ?>
 <?php
 // Display selected user data based on id
@@ -94,6 +82,21 @@ while ($user_data = mysqli_fetch_array($result)) {
                     </tbody>
                 </table>
 
+                <?php
+                if (isset($_POST['update'])) {
+
+                    $idcustomer = $_POST['idcustomer'];
+                    $namacustomer = $_POST['namacustomer'];
+                    $alamat = $_POST['alamat'];
+                    $notelp = $_POST['notelp'];
+
+                    // update user data
+                    $result = mysqli_query($mysqli, "UPDATE `customer` SET `namacustomer`='$namacustomer',`alamat`='$alamat', `notelp`='$notelp' WHERE `idcustomer`='$idcustomer'");
+
+                    // Redirect to homepage to display updated user in list
+                    header("Location: customer.php");
+                }
+                ?>
         </div>
 
         <div class="text-footer">
