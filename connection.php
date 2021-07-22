@@ -10,4 +10,3 @@ $mysqli = mysqli_connect($databaseHost, $databaseUsername, $databasePassword, $d
 if($mysqli === false){
     die("ERROR: Could not connect. " . mysqli_connect_error());
 }
-?>

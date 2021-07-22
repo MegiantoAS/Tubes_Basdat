@@ -143,3 +143,14 @@ footer {
   line-height: 20px;
   font-size: 14px;
 }
+.loginbg{
+  background: linear-gradient(to right, #FFFFFF, #C6F2BF 90%);
+}
+.card{
+  border-radius: 50px;
+  background: transparent;
+  border-width: revert;
+}
+img.label {
+  margin-top: 80px;
+}
