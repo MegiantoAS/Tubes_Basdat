@@ -61,14 +61,26 @@
                 </tr>
                 <?php
                 while ($user_data = mysqli_fetch_array($result)) {
-                    echo "<tr>";
-                    echo "<td><center>" . $user_data['idcustomer'] . "</center></td>";
-                    echo "<td><center>" . $user_data['namacustomer'] . "</center></td>";
-                    echo "<td><center>" . $user_data['alamat'] . "</center></td>";
-                    echo "<td><center>" . $user_data['notelp'] . "</center></td>";
-
-                    echo "<td><center><a class='btn btn-success' href='customer_edit.php?idcustomer=$user_data[idcustomer]'>Edit</a> |
-                         <a class='btn btn-danger' href='customer_hapus.php?idcustomer=$user_data[idcustomer]'>Delete</a></td></tr>";
+                ?>
+                    <tr>
+                        <td>
+                            <center><?= $user_data['idcustomer']; ?></center>
+                        </td>
+                        <td>
+                            <center> <?= $user_data['namacustomer']; ?></center>
+                        </td>
+                        <td>
+                            <center><?= $user_data['alamat']; ?></center>
+                        </td>
+                        <td>
+                            <center><?= $user_data['notelp']; ?></center>
+                        </td>
+                        <td>
+                            <center><a class='btn btn-success' href='customer_edit.php?idcustomer=<?= $user_data['idcustomer']; ?>'>Edit</a> |
+                                <a class='btn btn-danger' href='customer_hapus.php?idcustomer=<?= $user_data['idcustomer']; ?>' onclick="return confirm('anda yakin ingin menghapus data?')">Delete</a>
+                        </td>
+                    </tr>
+                <?php
                 }
                 ?>
             </table>

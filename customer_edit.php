@@ -17,16 +17,16 @@ if (isset($_POST['update'])) {
 <?php
 // Display selected user data based on id
 // Getting id from url
-$idcustomer = $_GET['id'];
+$idcustomer = $_GET['idcustomer'];
 // Fetech user data based on id
 $result = mysqli_query($mysqli, "SELECT * FROM customer WHERE idcustomer='$idcustomer'");
 
 while ($user_data = mysqli_fetch_array($result)) {
 
     $idcustomer = $user_data['idcustomer'];
-    $namacustomer = $user_data['nama'];
+    $namacustomer = $user_data['namacustomer'];
     $alamat = $user_data['alamat'];
-    $idbarang = $user_data['notelp'];
+    $notelp = $user_data['notelp'];
 }
 ?>
 <!DOCTYPE html>
@@ -87,7 +87,7 @@ while ($user_data = mysqli_fetch_array($result)) {
                             <td><input type="text" name="notelp" value=<?php echo $notelp; ?>></td>
                         </tr>
                         <tr>
-                            <td><a href="customer.php" class="btn btn-danger mb-3">Back</a></td> <input type="hidden" name="idcustomer" value=<?php echo $_GET['id']; ?>></td>
+                            <td><a href="customer.php" class="btn btn-danger mb-3">Back</a></td> <input type="hidden" name="idcustomer" value=<?php echo $_GET['idcustomer']; ?>></td>
 
                             <td><input class="btn btn-success" type="submit" name="update" value="update"></td>
                         </tr>

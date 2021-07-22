@@ -3,7 +3,7 @@
 include_once("connection.php");
 
 // Get id from URL to delete that user
-$idcustomer = $_GET['id'];
+$idcustomer = $_GET['idcustomer'];
 
 // Delete user row from table based on given id
 $result = mysqli_query($mysqli, "DELETE FROM customer WHERE idcustomer='$idcustomer'");
