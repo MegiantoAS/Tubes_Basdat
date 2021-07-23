@@ -5,16 +5,15 @@ include_once("connection.php");
 <?php
 // Display selected user data based on id
 // Getting id from url
-$idcustomer = $_GET['idcustomer'];
+$idcabang = $_GET['idcabang'];
 // Fetech user data based on id
-$result = mysqli_query($mysqli, "SELECT * FROM customer WHERE idcustomer='$idcustomer'");
+$result = mysqli_query($mysqli, "SELECT * FROM cabang WHERE idcabang='$idcabang'");
 
 while ($user_data = mysqli_fetch_array($result)) {
-
-    $idcustomer = $user_data['idcustomer'];
-    $namacustomer = $user_data['namacustomer'];
-    $alamat = $user_data['alamat'];
-    $notelp = $user_data['notelp'];
+    $idcabang = $user_data['idcabang'];
+    $alamatcabang = $user_data['alamatcabang'];
+    $notelpcabang = $user_data['notelpcabang'];
+    $jamoperasional = $user_data['jamoperasional'];
 }
 ?>
 <!DOCTYPE html>
@@ -55,27 +54,27 @@ while ($user_data = mysqli_fetch_array($result)) {
                 <h1>Edit Data Customer</h1>
             </div>
 
-            <form name="update_user" method="post" action="">
+            <form name="update_cabang" method="post" action="">
                 <table class="table table-bordered w-50 mt-5">
                     <tbody>
                         <tr>
-                            <td>Id customer</td>
-                            <td><input type="text" name="idcustomer" value="<?php echo $idcustomer; ?>" disabled></td>
-                        </tr>
-                        <tr>
-                            <td>Nama Customer</td>
-                            <td><input type=" text" name="namacustomer" value="<?php echo $namacustomer; ?>"></td>
+                            <td>Id Cabang</td>
+                            <td><input type="text" name="idcabang" value="<?php echo $idcabang; ?>" disabled></td>
                         </tr>
                         <tr>
                             <td>Alamat</td>
-                            <td><input type="text" name="alamat" value="<?php echo $alamat; ?>"></td>
+                            <td><input type="text" name="alamatcabang" value="<?php echo $alamatcabang; ?>"></td>
                         </tr>
                         <tr>
-                            <td>Nomor telpon</td>
-                            <td><input type="text" name="notelp" value="<?php echo $notelp; ?>"></td>
+                            <td>No Telp Cabang</td>
+                            <td><input type="text" name="notelpcabang" value="<?php echo $notelpcabang; ?>"></td>
                         </tr>
                         <tr>
-                            <td><a href="customer.php" class="btn btn-danger mb-3">Back</a></td> <input type="hidden" name="idcustomer" value=<?php echo $_GET['idcustomer']; ?>></td>
+                            <td>Jam Operasional</td>
+                            <td><input type="text" name="jamoperasional" value="<?php echo $jamoperasional; ?>"></td>
+                        </tr>
+                        <tr>
+                            <td><a href="cabang.php" class="btn btn-danger mb-3">Back</a></td> <input type="hidden" name="idcabang" value=<?php echo $_GET['idcabang']; ?>></td>
 
                             <td><input class="btn btn-success" type="submit" name="update" value="update"></td>
                         </tr>
@@ -85,16 +84,16 @@ while ($user_data = mysqli_fetch_array($result)) {
                 <?php
                 if (isset($_POST['update'])) {
 
-                    $idcustomer = $_POST['idcustomer'];
-                    $namacustomer = $_POST['namacustomer'];
-                    $alamat = $_POST['alamat'];
-                    $notelp = $_POST['notelp'];
+                    $idcabang = $_POST['idcabang'];
+                    $alamatcabang = $_POST['alamatcabang'];
+                    $notelpcabang = $_POST['notelpcabang'];
+                    $jamoperasional = $_POST['jamoperasional'];
 
                     // update user data
-                    $result = mysqli_query($mysqli, "UPDATE `customer` SET `namacustomer`='$namacustomer',`alamat`='$alamat', `notelp`='$notelp' WHERE `idcustomer`='$idcustomer'");
+                    $result = mysqli_query($mysqli, "UPDATE `cabang` SET `alamatcabang`='$alamatcabang',`notelpcabang`='$notelpcabang', `jamoperasional`='$jamoperasional' WHERE `idcabang`='$idcabang'");
 
                     // Redirect to homepage to display updated user in list
-                    header("Location: customer.php");
+                    header("Location: cabang.php");
                 }
                 ?>
         </div>
