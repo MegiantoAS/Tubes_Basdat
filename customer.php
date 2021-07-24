@@ -3,7 +3,7 @@
 
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="style-content.css?v=1.2">
+    <link rel="stylesheet" href="style-content.css?v=1.3">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <?php
     include_once("connection.php");
@@ -26,8 +26,7 @@
         <a href="barang.php">Barang</a>
         <a href="cabang.php">Cabang</a>
         <a href="pembayaran.php">Pembayaran</a>
-        <a href="logout.php">
-            <a onclick="return confirm('anda yakin ingin keluar?')" class="btn btn-danger mx-5 col-8" href="logout.php">Logout</a>
+        <a onclick="return confirm('anda yakin ingin keluar?')" class="btn btn-danger mx-5 col-8" href="logout.php">Logout</a>
     </div>
 
     <div class="main">
@@ -35,6 +34,9 @@
             <div class="container-fluid">
                 <div class="collapse navbar-collapse" id="navbarText">
                     <ul class="navbar-nav ms-auto">
+                        <li class="nav-item mt-2 ">
+                            Hello, 
+                        </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#"><img src="images/iconprofile.png" width="30px"></a>
                         </li>
@@ -44,14 +46,23 @@
         </nav>
 
         <div class="container">
-            <a class='btn btn-success mt-5' href="customer_tambah.php">Tambah</a>
-            <form class="form-inline col-sm-2 method='GET'">
-                <input class="form-control mr-sm-2" name="cari" type="search" placeholder="Cari Nama Customer" aria-label="Search">
-                <button class="btn-sm btn-outline-success my-2 my-sm-0" type="submit" action="">Cari</button>
-            </form>
-
+            <div class="row ms-auto">
+                <div class="col">
+                    <a class='btn btn-success' href="customer_tambah.php">Tambah</a>
+                </div>
+                <form class="form-inline method='GET'">
+                <div class="row">
+                    <div class="col-2">
+                        <input class="form-control mt-2" name="cari" type="search" placeholder="Cari Nama Customer" aria-label="Search">
+                    </div>
+                    <div class="col">
+                        <button class="btn-sm btn-outline-success" type="submit" action="">Cari</button>
+                    </div>
+                </div>
+                </form>
+            </div>
+            <br>
             <table class="table table-bordered text-center">
-                <br></br>
                 <tr>
                     <th width=200>ID Customer</th>
                     <th width=350>Nama Customer</th>

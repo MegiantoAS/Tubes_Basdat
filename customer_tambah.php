@@ -6,7 +6,7 @@ include_once("connection.php");
 
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="style-content.css?v=1.2">
+    <link rel="stylesheet" href="style-content.css?v=1.3">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script type="text/javascript" language="javascript">
         function validasidata() {
@@ -63,6 +63,7 @@ include_once("connection.php");
                 </div>
             </div>
         </nav>
+
         <div class="container">
             <div id="banner">
                 <h1>Tambah Barang</h1>
@@ -109,8 +110,9 @@ include_once("connection.php");
                 }
                 ?>
         </div>
-        <div class="text-footer">
-            Copyright © 2021. MyLaundry. All RIght Reserved
-        </div>
+    </div>
+    <div class="text-footer">
+        Copyright © 2021. MyLaundry. All RIght Reserved
+    </div>
 </body>
 <html>

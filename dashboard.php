@@ -27,7 +27,7 @@ $dataPembayaran = mysqli_fetch_assoc($result);
 
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="dashboard.css?v=2.0">
+    <link rel="stylesheet" href="dashboard.css?v=2.1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <title>MyLaundry | Dashboard</title>
 </head>
@@ -41,7 +41,7 @@ $dataPembayaran = mysqli_fetch_assoc($result);
         <a href="barang.php">Barang</a>
         <a href="cabang.php">Cabang</a>
         <a href="pembayaran.php">Pembayaran</a>
-        <button type="button" class="btn btn-danger mx-5 col-8">Logout</button>
+        <label><a href="logout.php" type="button" class="btn btn-danger mx-5 col-8">Logout</a></label>
     </div>
 
     <div class="main">
