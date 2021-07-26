@@ -73,15 +73,29 @@
                 </tr>
                 <?php
                 while ($user_data = mysqli_fetch_array($result)) {
-                    echo "<tr>";
-                    echo "<td><center>" . $user_data['idbarang'] . "</center></td>";
-                    echo "<td><center>" . $user_data['idcustomer'] . "</center></td>";
-                    echo "<td>" . $user_data['namabarang'] . "</td>";
-                    echo "<td><center>" . $user_data['jumlahbarang'] . "</center></td>";
-                    echo "<td><center>" . $user_data['beratbarang'] . "</center></td>";
-
-                    echo "<td><center><a class='btn btn-success' href='#?idbarang=$user_data[idbarang]'>Edit</a> |
-                         <a class='btn btn-danger' href='#?idbarang=$user_data[idbarang]'>Delete</a></td></tr>";
+                ?>
+                    <tr>
+                        <td>
+                            <center><?= $user_data['idbarang'] ?></center>
+                        </td>
+                        <td>
+                            <center><?= $user_data['idcustomer'] ?></center>
+                        </td>
+                        <td>
+                            <center><?= $user_data['namabarang'] ?></center>
+                        </td>
+                        <td>
+                            <center><?= $user_data['jumlahbarang'] ?></center>
+                        </td>
+                        <td>
+                            <center><?= $user_data['beratbarang'] ?></center>
+                        </td>
+                        <td>
+                            <center><a class='btn btn-success' href='barang_edit.php?idbarang=<?= $user_data['idbarang'] ?>'>Edit</a> |
+                                <a class='btn btn-danger' href='barang_hapus.php?idbarang=<?= $user_data['idbarang'] ?>' onclick="return confirm('anda yakin ingin menghapus data?')">Delete</a>
+                        </td>
+                    </tr>
+                <?php
                 }
                 ?>
             </table>
