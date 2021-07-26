@@ -65,19 +65,35 @@
                 <tr>
                 <th width=250>ID Pembayaran</th> <th width=170>ID Barang</th> <th width=180>ID Pegawai</th> <th width=150>Tgl_Terima</th> <th width=200>Total Harga</th> <th width=200>Uang Muka</th> <th width=200>Aksi</th>
                 </tr>
-                <?php  
-                    while($user_data = mysqli_fetch_array($result)) {         
-                        echo "<tr>";
-                        echo "<td><center>".$user_data['idpembayaran']."</center></td>";
-                        echo "<td><center>".$user_data['idbarang']."</center></td>";
-                        echo "<td><center>".$user_data['idpegawai']."</center></td>";
-                        echo "<td><center>".$user_data['tglterima']."</center></td>";
-                        echo "<td><center>".$user_data['totalharga']."</center></td>";
-                        echo "<td><center>".$user_data['uangmuka']."</center></td>";
-                        
-                        echo "<td><center><a class='btn btn-success' href='#?idpembayaran=$user_data[idpembayaran]'>Edit</a> |
-                         <a class='btn btn-danger' href='#?idpembayaran=$user_data[idpembayaran]'>Delete</a></td></tr>";        
-                    }
+                <?php
+                while ($user_data = mysqli_fetch_array($result)) {
+                ?>
+                    <tr>
+                        <td>
+                            <center><?= $user_data['idpembayaran']; ?></center>
+                        </td>
+                        <td>
+                            <center> <?= $user_data['idbarang']; ?></center>
+                        </td>
+                        <td>
+                            <center><?= $user_data['idpegawai']; ?></center>
+                        </td>
+                        <td>
+                            <center><?= $user_data['tglterima']; ?></center>
+                        </td>
+                        <td>
+                            <center><?= $user_data['totalharga']; ?></center>
+                        </td>
+                        <td>
+                            <center><?= $user_data['uangmuka']; ?></center>
+                        </td>
+                        <td>
+                            <center><a class='btn btn-success' href='pembayaran_edit.php?idpembayaran=<?= $user_data['idpembayaran']; ?>'>Edit</a> |
+                                <a class='btn btn-danger' href='pembayaran_hapus.php?idpembayaran=<?= $user_data['idpembayaran']; ?>' onclick="return confirm('anda yakin ingin menghapus data?')">Delete</a>
+                        </td>
+                    </tr>
+                <?php
+                }
                 ?>
             </table>
         </div>
