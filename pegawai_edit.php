@@ -5,16 +5,15 @@ include_once("connection.php");
 <?php
 // Display selected user data based on id
 // Getting id from url
-$idcustomer = $_GET['idcustomer'];
+$idpegawai = $_GET['idpegawai'];
 // Fetech user data based on id
-$result = mysqli_query($mysqli, "SELECT * FROM customer WHERE idcustomer='$idcustomer'");
+$result = mysqli_query($mysqli, "SELECT * FROM pegawai WHERE idpegawai='$idpegawai'");
 
 while ($user_data = mysqli_fetch_array($result)) {
 
-    $idcustomer = $user_data['idcustomer'];
-    $namacustomer = $user_data['namacustomer'];
-    $alamat = $user_data['alamat'];
-    $notelp = $user_data['notelp'];
+    $idpegawai = $user_data['idpegawai'];
+    $idcabang = $user_data['idcabang'];
+    $namapegawai = $user_data['namapegawai'];
 }
 ?>
 <!DOCTYPE html>
@@ -30,8 +29,8 @@ while ($user_data = mysqli_fetch_array($result)) {
     <div class="sidenav">
         <a href="dashboard.php"><img src="images/Group 11.png"></a><br>
         <br><br><br><br><br>
-        <label><a href="customer.php">Customer</a></label>
-        <a href="pegawai.php">Pegawai</a>
+        <a href="customer.php">Customer</a>
+        <label><a href="pegawai.php">Pegawai</a></label>
         <a href="barang.php">Barang</a>
         <a href="cabang.php">Cabang</a>
         <a href="pembayaran.php">Pembayaran</a>
@@ -55,30 +54,38 @@ while ($user_data = mysqli_fetch_array($result)) {
         </nav>
         <div class="container">
             <div id="banner">
-                <h1>Edit Data Customer</h1>
+                <h1>Edit Data Pegawai</h1>
             </div>
 
             <form name="update_user" method="post" action="">
                 <table class="table table-bordered w-50 mt-5">
                     <tbody>
                         <tr>
-                            <td>Id customer</td>
-                            <td><input type="text" name="idcustomer" value="<?php echo $idcustomer; ?>" disabled></td>
+                            <td>Id Pegawai</td>
+                            <td><input type="text" name="idpegawai" value="<?php echo $idpegawai; ?>" disabled></td>
                         </tr>
                         <tr>
-                            <td>Nama Customer</td>
-                            <td><input type=" text" name="namacustomer" required="" value="<?php echo $namacustomer; ?>"></td>
+                        <td>Id Cabang</td>
+                            <td>
+                                <select name="idcabang" required="">
+                                    <option selected>~Pilih ID Cabang~</option>
+                                    <?php
+                                        $query = mysqli_query($mysqli, "SELECT * FROM cabang ORDER BY idcabang");
+                                        while($data = mysqli_fetch_array($query)) :
+                                    ?>
+                                        <option value="<?= $data['idcabang'] ?>"><?= $data['idcabang'] . " | " . $data['idcabang']   ?></option>
+                                    <?php
+                                        endwhile;
+                                    ?>
+                                </select>
+                            </td>
                         </tr>
                         <tr>
-                            <td>Alamat</td>
-                            <td><input type="text" name="alamat" required="" value="<?php echo $alamat; ?>"></td>
+                            <td>Nama Pegawai</td>
+                            <td><input type="text" name="namapegawai" required="" value="<?php echo $namapegawai; ?>"></td>
                         </tr>
                         <tr>
-                            <td>Nomor telpon</td>
-                            <td><input type="text" name="notelp" required="" value="<?php echo $notelp; ?>"></td>
-                        </tr>
-                        <tr>
-                            <td><a href="customer.php" class="btn btn-danger mb-3">Back</a></td> <input type="hidden" name="idcustomer" value=<?php echo $_GET['idcustomer']; ?>></td>
+                            <td><a href="pegawai.php" class="btn btn-danger mb-3">Back</a></td> <input type="hidden" name="idpegawai" value=<?php echo $_GET['idpegawai']; ?>></td>
 
                             <td><input class="btn btn-success" type="submit" name="update" value="update"></td>
                         </tr>
@@ -88,16 +95,15 @@ while ($user_data = mysqli_fetch_array($result)) {
                 <?php
                 if (isset($_POST['update'])) {
 
-                    $idcustomer = $_POST['idcustomer'];
-                    $namacustomer = $_POST['namacustomer'];
-                    $alamat = $_POST['alamat'];
-                    $notelp = $_POST['notelp'];
+                    $idpegawai = $_POST['idpegawai'];
+                    $idcabang = $_POST['idcabang'];
+                    $namapegawai = $_POST['namapegawai'];
 
                     // update user data
-                    $result = mysqli_query($mysqli, "UPDATE `customer` SET `namacustomer`='$namacustomer',`alamat`='$alamat', `notelp`='$notelp' WHERE `idcustomer`='$idcustomer'");
+                    $result = mysqli_query($mysqli, "UPDATE `pegawai` SET `idcabang`='$idcabang',`namapegawai`='$namapegawai' WHERE `idpegawai`='$idpegawai'");
 
                     // Redirect to homepage to display updated user in list
-                    header("Location: customer.php");
+                    header("Location: pegawai.php");
                 }
                 ?>
         </div>

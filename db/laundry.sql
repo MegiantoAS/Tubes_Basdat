@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.1
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 22 Jul 2021 pada 09.48
--- Versi server: 10.4.11-MariaDB
--- Versi PHP: 7.2.28
+-- Generation Time: Jul 26, 2021 at 02:57 AM
+-- Server version: 10.4.19-MariaDB
+-- PHP Version: 8.0.7
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -25,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `barang`
+-- Table structure for table `barang`
 --
 
 CREATE TABLE `barang` (
@@ -37,7 +36,7 @@ CREATE TABLE `barang` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `barang`
+-- Dumping data for table `barang`
 --
 
 INSERT INTO `barang` (`idbarang`, `idcustomer`, `namabarang`, `jumlahbarang`, `beratbarang`) VALUES
@@ -52,7 +51,7 @@ INSERT INTO `barang` (`idbarang`, `idcustomer`, `namabarang`, `jumlahbarang`, `b
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `cabang`
+-- Table structure for table `cabang`
 --
 
 CREATE TABLE `cabang` (
@@ -63,7 +62,7 @@ CREATE TABLE `cabang` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `cabang`
+-- Dumping data for table `cabang`
 --
 
 INSERT INTO `cabang` (`idcabang`, `alamatcabang`, `notelpcabang`, `jamoperasional`) VALUES
@@ -76,7 +75,7 @@ INSERT INTO `cabang` (`idcabang`, `alamatcabang`, `notelpcabang`, `jamoperasiona
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `customer`
+-- Table structure for table `customer`
 --
 
 CREATE TABLE `customer` (
@@ -87,23 +86,22 @@ CREATE TABLE `customer` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `customer`
+-- Dumping data for table `customer`
 --
 
 INSERT INTO `customer` (`idcustomer`, `namacustomer`, `alamat`, `notelp`) VALUES
-('12345', 'ridhwann', 'bandung', '09789689987'),
+('12345', 'ridhwan', 'bandung', '09789689987'),
 ('12346', 'megi', 'bandung', '0897986768'),
 ('12347', 'dean', 'bandung', '8987687989'),
 ('17534', 'Angga Smit', 'Cicahem', '083394405896'),
 ('17556', 'a.hendra', 'jl dipatiukur no 3', '08940589456'),
 ('17649', 'Asep Supriatna', 'rancabuaya', '085983475090'),
-('17789', 'Udin Sedunia', 'jl,laswi no34', '08381236734'),
 ('17894', 'John Takor', 'Rancakalong', '081895479835');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `pegawai`
+-- Table structure for table `pegawai`
 --
 
 CREATE TABLE `pegawai` (
@@ -115,7 +113,7 @@ CREATE TABLE `pegawai` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `pegawai`
+-- Dumping data for table `pegawai`
 --
 
 INSERT INTO `pegawai` (`idpegawai`, `idcabang`, `namapegawai`, `username`, `password`) VALUES
@@ -128,7 +126,7 @@ INSERT INTO `pegawai` (`idpegawai`, `idcabang`, `namapegawai`, `username`, `pass
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `pembayaran`
+-- Table structure for table `pembayaran`
 --
 
 CREATE TABLE `pembayaran` (
@@ -141,7 +139,7 @@ CREATE TABLE `pembayaran` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `pembayaran`
+-- Dumping data for table `pembayaran`
 --
 
 INSERT INTO `pembayaran` (`idpembayaran`, `idbarang`, `idpegawai`, `tglterima`, `totalharga`, `uangmuka`) VALUES
@@ -158,33 +156,33 @@ INSERT INTO `pembayaran` (`idpembayaran`, `idbarang`, `idpegawai`, `tglterima`, 
 --
 
 --
--- Indeks untuk tabel `barang`
+-- Indexes for table `barang`
 --
 ALTER TABLE `barang`
   ADD PRIMARY KEY (`idbarang`),
   ADD KEY `idcustomer` (`idcustomer`);
 
 --
--- Indeks untuk tabel `cabang`
+-- Indexes for table `cabang`
 --
 ALTER TABLE `cabang`
   ADD PRIMARY KEY (`idcabang`);
 
 --
--- Indeks untuk tabel `customer`
+-- Indexes for table `customer`
 --
 ALTER TABLE `customer`
   ADD PRIMARY KEY (`idcustomer`);
 
 --
--- Indeks untuk tabel `pegawai`
+-- Indexes for table `pegawai`
 --
 ALTER TABLE `pegawai`
   ADD PRIMARY KEY (`idpegawai`),
   ADD KEY `idcabang` (`idcabang`);
 
 --
--- Indeks untuk tabel `pembayaran`
+-- Indexes for table `pembayaran`
 --
 ALTER TABLE `pembayaran`
   ADD PRIMARY KEY (`idpembayaran`),
@@ -192,27 +190,27 @@ ALTER TABLE `pembayaran`
   ADD KEY `idpegawai` (`idpegawai`);
 
 --
--- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
+-- Constraints for dumped tables
 --
 
 --
--- Ketidakleluasaan untuk tabel `barang`
+-- Constraints for table `barang`
 --
 ALTER TABLE `barang`
-  ADD CONSTRAINT `barang_ibfk_1` FOREIGN KEY (`idcustomer`) REFERENCES `customer` (`idcustomer`);
+  ADD CONSTRAINT `barang_ibfk_1` FOREIGN KEY (`idcustomer`) REFERENCES `customer` (`idcustomer`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Ketidakleluasaan untuk tabel `pegawai`
+-- Constraints for table `pegawai`
 --
 ALTER TABLE `pegawai`
-  ADD CONSTRAINT `pegawai_ibfk_1` FOREIGN KEY (`idcabang`) REFERENCES `cabang` (`idcabang`);
+  ADD CONSTRAINT `pegawai_ibfk_1` FOREIGN KEY (`idcabang`) REFERENCES `cabang` (`idcabang`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Ketidakleluasaan untuk tabel `pembayaran`
+-- Constraints for table `pembayaran`
 --
 ALTER TABLE `pembayaran`
-  ADD CONSTRAINT `pembayaran_ibfk_1` FOREIGN KEY (`idbarang`) REFERENCES `barang` (`idbarang`),
-  ADD CONSTRAINT `pembayaran_ibfk_2` FOREIGN KEY (`idpegawai`) REFERENCES `pegawai` (`idpegawai`);
+  ADD CONSTRAINT `pembayaran_ibfk_1` FOREIGN KEY (`idbarang`) REFERENCES `barang` (`idbarang`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `pembayaran_ibfk_2` FOREIGN KEY (`idpegawai`) REFERENCES `pegawai` (`idpegawai`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

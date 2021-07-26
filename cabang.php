@@ -26,7 +26,7 @@
         <a href="barang.php">Barang</a>
         <label><a href="cabang.php">Cabang</a></label>
         <a href="pembayaran.php">Pembayaran</a>
-        <button type="button" class="btn btn-danger mx-5 col-8">Logout</button>
+        <a onclick="return confirm('anda yakin ingin keluar?')" class="btn btn-danger mx-5 col-8" href="logout.php">Logout</a>
     </div>
 
     <div class="main">
@@ -34,6 +34,9 @@
             <div class="container-fluid">
                 <div class="collapse navbar-collapse" id="navbarText">
                     <ul class="navbar-nav ms-auto">
+                        <li class="nav-item mt-2 ">
+                            Hello, 
+                        </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#"><img src="images/iconprofile.png" width="30px"></a>
                         </li>
@@ -43,14 +46,23 @@
         </nav>
 
         <div class="container">
-            <a class='btn btn-success mt-5' href="cabang_tambah.php">Tambah</a>
-            <form class="form-inline col-sm-2 method='GET'">
-                <input class="form-control mr-sm-2" name="cari" type="search" placeholder="Cari alamat cabang" aria-label="Search">
-                <button class="btn-sm btn-outline-success my-2 my-sm-0" type="submit" action="">Cari</button>
-            </form>
-
+            <div class="row ms-auto">
+                <div class="col">
+                    <a class='btn btn-success' href="customer_tambah.php">Tambah</a>
+                </div>
+                <form class="form-inline method='GET'">
+                <div class="row">
+                    <div class="col-2">
+                        <input class="form-control mt-2" name="cari" type="search" placeholder="Cari Cabang" aria-label="Search">
+                    </div>
+                    <div class="col">
+                        <button class="btn-sm btn-outline-success" type="submit" action="">Cari</button>
+                    </div>
+                </div>
+                </form>
+            </div>
+            <br>
             <table class="table table-bordered text-center">
-                <br></br>
                 <tr>
                     <th width=200>ID Cabang</th>
                     <th width=400>Alamat Cabang</th>

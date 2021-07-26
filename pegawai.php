@@ -25,14 +25,17 @@
         <a href="barang.php">Barang</a>
         <a href="cabang.php">Cabang</a>
         <a href="pembayaran.php">Pembayaran</a>
-        <button type="button" class="btn btn-danger mx-5 col-8">Logout</button>
+        <a onclick="return confirm('anda yakin ingin keluar?')" class="btn btn-danger mx-5 col-8" href="logout.php">Logout</a>
     </div>
 
     <div class="main">
-        <nav class="navbar navbar-expand-lg navbar-light bg-custom">
+    <nav class="navbar navbar-expand-lg navbar-light bg-custom">
             <div class="container-fluid">
                 <div class="collapse navbar-collapse" id="navbarText">
                     <ul class="navbar-nav ms-auto">
+                        <li class="nav-item mt-2 ">
+                            Hello, 
+                        </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#"><img src="images/iconprofile.png" width="30px"></a>
                         </li>
@@ -42,14 +45,23 @@
         </nav>
 
         <div class="container">
-            <a class='btn btn-success mt-5' href="#">Tambah</a>
-            <form class="form-inline col-sm-2 method='GET'">
-                <input class="form-control mr-sm-2" name="cari"  type="search" placeholder="Cari Nama Pegawai" aria-label="Search">
-                <button class="btn-sm btn-outline-success my-2 my-sm-0" type="submit" action="">Cari</button>
-            </form>
-
+            <div class="row ms-auto">
+                <div class="col">
+                    <a class='btn btn-success' href="pegawai_tambah.php">Tambah</a>
+                </div>
+                <form class="form-inline method='GET'">
+                <div class="row">
+                    <div class="col-2">
+                        <input class="form-control mt-2" name="cari" type="search" placeholder="Cari Nama Pegawai" aria-label="Search">
+                    </div>
+                    <div class="col">
+                        <button class="btn-sm btn-outline-success" type="submit" action="">Cari</button>
+                    </div>
+                </div>
+                </form>
+            </div>
+            <br>
             <table class="table table-bordered text-center">
-                <br></br>
                 <tr>
                 <th width=150>ID Pegawai</th> <th width=150>Id Cabang</th> <th width=300>Nama Pegawai</th> <th width=200>Aksi</th>
                 </tr>
@@ -60,8 +72,8 @@
                         echo "<td><center>".$user_data['idcabang']."</center></td>";
                         echo "<td>".$user_data['namapegawai']."</td>";
                         
-                        echo "<td><center><a class='btn btn-success' href='#?idpegawai=$user_data[idpegawai]'>Edit</a> |
-                         <a class='btn btn-danger' href='#?idpegawai=$user_data[idpegawai]'>Delete</a></td></tr>";        
+                        echo "<td><center><a class='btn btn-success' href='pegawai_edit.php?idpegawai=$user_data[idpegawai]'>Edit</a> |
+                         <a class='btn btn-danger' href='pegawai_hapus.php?idpegawai=$user_data[idpegawai]'>Delete</a></td></tr>";        
                     }
                 ?>
             </table>

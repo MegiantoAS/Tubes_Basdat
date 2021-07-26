@@ -10,31 +10,18 @@ include_once("connection.php");
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script type="text/javascript" language="javascript">
         function validasidata() {
-            var idcustomer = document.update_user.idcustomer.value.trim();
-            if (idcustomer.length == 0) {
+            var idpegawai = document.update_user.idpegawai.value.trim();
+            if (idpegawai.length == 0) {
                 alert("ID tidak boleh kosong.");
-                document.update_user.idcustomer.focus();
+                document.update_user.idpegawai.focus();
                 return false;
             }
-            var namacustomer = document.update_user.namacustomer.value.trim();
-            if (namacustomer.length == 0) {
-                alert("Nama tidak boleh kosong.");
-                document.update_user.namacustomer.focus();
+            var namapegawai = document.update_user.namapegawai.value.trim();
+            if (namapegawai.length == 0) {
+                alert("Isi Nama Pegawai");
+                document.update_user.namapegawai.focus();
                 return false;
             }
-            var alamat = document.update_user.alamat.value.trim();
-            if (alamat.length == 0) {
-                alert("Isi Alamat Anda");
-                document.update_user.alamat.focus();
-                return false;
-            }
-            var notelp = document.update_user.notelp.value.trim();
-            if (notelp.length == 0) {
-                alert("Isi No Telpon Anda");
-                document.update_user.notelp.focus();
-                return false;
-            }
-
         }
     </script>
 </head>
@@ -43,8 +30,8 @@ include_once("connection.php");
     <div class="sidenav">
         <a href="dashboard.php"><img src="images/Group 11.png"></a><br>
         <br><br><br><br><br>
-        <label><a href="customer.php">Customer</a></label>
-        <a href="pegawai.php">Pegawai</a>
+        <a href="customer.php">Customer</a>
+        <label><a href="pegawai.php">Pegawai</a></label>
         <a href="barang.php">Barang</a>
         <a href="cabang.php">Cabang</a>
         <a href="pembayaran.php">Pembayaran</a>
@@ -69,26 +56,34 @@ include_once("connection.php");
 
         <div class="container">
             <div id="banner">
-                <h1>Tambah Customer</h1>
+                <h1>Tambah Pegawai</h1>
             </div>
             <form name="update_user" method="post" action="" onsubmit="return validasidata()">
                 <table class="table table-bordered w-50 mt-5 justify-content-center">
                     <tbody>
                         <tr>
-                            <td>Id Customer</td>
-                            <td><input type="text" name="idcustomer"></td>
+                            <td>Id Pegawai</td>
+                            <td><input type="text" name="idpegawai"></td>
                         </tr>
                         <tr>
-                            <td>Nama Customer</td>
-                            <td><input type="text" name="namacustomer"></td>
+                            <td>Id Cabang</td>
+                            <td>
+                                <select name="idcabang" required="">
+                                    <option selected>~Pilih ID Cabang~</option>
+                                    <?php
+                                        $query = mysqli_query($mysqli, "SELECT * FROM cabang ORDER BY idcabang");
+                                        while($data = mysqli_fetch_array($query)) :
+                                    ?>
+                                        <option value="<?= $data['idcabang'] ?>"><?= $data['idcabang'] . " | " . $data['idcabang']   ?></option>
+                                    <?php
+                                        endwhile;
+                                    ?>
+                                </select>
+                            </td>
                         </tr>
                         <tr>
-                            <td>Alamat</td>
-                            <td><input type="text" name="alamat"></td>
-                        </tr>
-                        <tr>
-                            <td>No Telpon</td>
-                            <td><input type="text" name="notelp"></td>
+                            <td>Nama Pegawai</td>
+                            <td><input type="text" name="namapegawai"></td>
                         </tr>
                         <tr>
                             <td><a href="customer.php" class="btn btn-danger ">Back</a></td>
@@ -100,16 +95,15 @@ include_once("connection.php");
 
                 // Check If form submitted, insert form data into users table.
                 if (isset($_POST['Submit'])) {
-                    $idcustomer = $_POST['idcustomer'];
-                    $namacustomer = $_POST['namacustomer'];
-                    $alamat = $_POST['alamat'];
-                    $notelp = $_POST['notelp'];
+                    $idpegawai = $_POST['idpegawai'];
+                    $idcabang = $_POST['idcabang'];
+                    $namapegawai = $_POST['namapegawai'];
 
                     // Insert user data into table
-                    $result = mysqli_query($mysqli, "INSERT INTO customer(idcustomer,namacustomer,alamat,notelp) VALUES('$idcustomer','$namacustomer','$alamat', '$notelp')");
+                    $result = mysqli_query($mysqli, "INSERT INTO pegawai(idpegawai,idcabang,namapegawai) VALUES('$idpegawai','$idcabang','$namapegawai')");
 
                     // Show message when user added
-                    echo "Data Customer Sudah ditambahkan. <a href='customer.php'>Lihat Pada Tabel Customer</a>";
+                    echo "Data Pegawai Sudah ditambahkan. <a href='pegawai.php'>Lihat Pada Tabel Pegawai</a>";
                 }
                 ?>
         </div>
