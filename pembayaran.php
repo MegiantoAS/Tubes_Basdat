@@ -47,7 +47,7 @@
         <div class="container">
         <div class="row ms-auto">
                 <div class="col">
-                    <a class='btn btn-success' href="customer_tambah.php">Tambah</a>
+                    <a class='btn btn-success' href="pembayaran_tambah.php">Tambah</a>
                 </div>
                 <form class="form-inline method='GET'">
                 <div class="row">
