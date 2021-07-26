@@ -65,16 +65,26 @@
                 <tr>
                 <th width=150>ID Pegawai</th> <th width=150>Id Cabang</th> <th width=300>Nama Pegawai</th> <th width=200>Aksi</th>
                 </tr>
-                <?php  
-                    while($user_data = mysqli_fetch_array($result)) {         
-                        echo "<tr>";
-                        echo "<td><center>".$user_data['idpegawai']."</center></td>";
-                        echo "<td><center>".$user_data['idcabang']."</center></td>";
-                        echo "<td>".$user_data['namapegawai']."</td>";
-                        
-                        echo "<td><center><a class='btn btn-success' href='pegawai_edit.php?idpegawai=$user_data[idpegawai]'>Edit</a> |
-                         <a class='btn btn-danger' href='pegawai_hapus.php?idpegawai=$user_data[idpegawai]'>Delete</a></td></tr>";        
-                    }
+                <?php
+                while ($user_data = mysqli_fetch_array($result)) {
+                ?>
+                    <tr>
+                        <td>
+                            <center><?= $user_data['idpegawai']; ?></center>
+                        </td>
+                        <td>
+                            <center> <?= $user_data['idcabang']; ?></center>
+                        </td>
+                        <td>
+                            <center><?= $user_data['namapegawai']; ?></center>
+                        </td>
+                        <td>
+                            <center><a class='btn btn-success' href='pegawai_edit.php?idpegawai=<?= $user_data['idpegawai']; ?>'>Edit</a> |
+                                <a class='btn btn-danger' href='pegawai_hapus.php?idpegawai=<?= $user_data['idpegawai']; ?>' onclick="return confirm('anda yakin ingin menghapus data?')">Delete</a>
+                        </td>
+                    </tr>
+                <?php
+                }
                 ?>
             </table>
         </div>
