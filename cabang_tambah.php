@@ -47,10 +47,10 @@ include_once("connection.php");
     <div class="sidenav">
         <a href="dashboard.php"><img src="images/Group 11.png"></a><br>
         <br><br><br><br><br>
-        <label><a href="customer.php">Customer</a></label>
+        <a href="customer.php">Customer</a>
         <a href="pegawai.php">Pegawai</a>
         <a href="barang.php">Barang</a>
-        <a href="cabang.php">Cabang</a>
+        <label><a href="cabang.php">Cabang</a></label>
         <a href="pembayaran.php">Pembayaran</a>
         <button type="button" class="btn btn-danger mx-5 col-8">Logout</button>
     </div>
