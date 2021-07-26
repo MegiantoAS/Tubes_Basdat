@@ -69,7 +69,7 @@ include_once("connection.php");
         </nav>
         <div class="container">
             <div id="banner">
-                <h1>Tambah Barang</h1>
+                <h1>Tambah Cabang</h1>
             </div>
             <form name="update_cabang" method="post" action="" onsubmit="return validasidata()">
                 <table class="table table-bordered w-50 mt-5 justify-content-center">

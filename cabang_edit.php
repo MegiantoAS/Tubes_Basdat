@@ -51,7 +51,7 @@ while ($user_data = mysqli_fetch_array($result)) {
         </nav>
         <div class="container">
             <div id="banner">
-                <h1>Edit Data Customer</h1>
+                <h1>Edit Data Cabang</h1>
             </div>
 
             <form name="update_cabang" method="post" action="">
@@ -63,15 +63,15 @@ while ($user_data = mysqli_fetch_array($result)) {
                         </tr>
                         <tr>
                             <td>Alamat</td>
-                            <td><input type="text" name="alamatcabang" value="<?php echo $alamatcabang; ?>"></td>
+                            <td><input type="text" name="alamatcabang" required="" value="<?php echo $alamatcabang; ?>"></td>
                         </tr>
                         <tr>
                             <td>No Telp Cabang</td>
-                            <td><input type="text" name="notelpcabang" value="<?php echo $notelpcabang; ?>"></td>
+                            <td><input type="text" name="notelpcabang" required="" value="<?php echo $notelpcabang; ?>"></td>
                         </tr>
                         <tr>
                             <td>Jam Operasional</td>
-                            <td><input type="text" name="jamoperasional" value="<?php echo $jamoperasional; ?>"></td>
+                            <td><input type="text" name="jamoperasional" required="" value="<?php echo $jamoperasional; ?>"></td>
                         </tr>
                         <tr>
                             <td><a href="cabang.php" class="btn btn-danger mb-3">Back</a></td> <input type="hidden" name="idcabang" value=<?php echo $_GET['idcabang']; ?>></td>
