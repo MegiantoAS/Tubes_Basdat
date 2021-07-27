@@ -43,7 +43,7 @@ while ($user_data = mysqli_fetch_array($result)) {
                 <div class="collapse navbar-collapse" id="navbarText">
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item mt-2 ">
-                            Hello, 
+                            Hello,
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#"><img src="images/iconprofile.png" width="30px"></a>
@@ -57,7 +57,7 @@ while ($user_data = mysqli_fetch_array($result)) {
                 <h1>Edit Data Pegawai</h1>
             </div>
 
-            <form name="update_user" method="post" action="">
+            <form name="update_pegawai" method="post" action="">
                 <table class="table table-bordered w-50 mt-5">
                     <tbody>
                         <tr>
@@ -65,17 +65,20 @@ while ($user_data = mysqli_fetch_array($result)) {
                             <td><input type="text" name="idpegawai" value="<?php echo $idpegawai; ?>" disabled></td>
                         </tr>
                         <tr>
-                        <td>Id Cabang</td>
+                            <td>Id Cabang</td>
                             <td>
                                 <select name="idcabang" required="">
                                     <option selected>~Pilih ID Cabang~</option>
                                     <?php
-                                        $query = mysqli_query($mysqli, "SELECT * FROM cabang ORDER BY idcabang");
-                                        while($data = mysqli_fetch_array($query)) :
+                                    $query = mysqli_query($mysqli, "SELECT * FROM cabang ORDER BY idcabang");
+                                    while ($data = mysqli_fetch_array($query)) :
                                     ?>
-                                        <option value="<?= $data['idcabang'] ?>"><?= $data['idcabang'] . " | " . $data['idcabang']   ?></option>
+                                        <option value="<?= $data['idcabang'] ?>" <?php
+                                                                                    if ($data['idcabang'] == $idcabang)
+                                                                                        echo "selected"
+                                                                                    ?>><?= $data['idcabang'] ?></option>
                                     <?php
-                                        endwhile;
+                                    endwhile;
                                     ?>
                                 </select>
                             </td>

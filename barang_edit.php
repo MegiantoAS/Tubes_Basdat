@@ -1,8 +1,5 @@
 <?php
 include_once("connection.php");
-
-?>
-<?php
 // Display selected user data based on id
 // Getting id from url
 $idbarang = $_GET['idbarang'];
@@ -18,6 +15,24 @@ while ($user_data = mysqli_fetch_array($result)) {
     $beratbarang = $user_data['beratbarang'];
 }
 ?>
+
+<?php
+if (isset($_POST['update'])) {
+
+    $idbarang = $_POST['idbarang'];
+    $idcustomer = $_POST['idcustomer'];
+    $namabarang = $_POST['namabarang'];
+    $jumlahbarang = $_POST['jumlahbarang'];
+    $beratbarang = $_POST['beratbarang'];
+
+    // update user data
+    $result = mysqli_query($mysqli, "UPDATE `barang` SET `idcustomer`='$idcustomer',`namabarang`='$namabarang', `jumlahbarang`='$jumlahbarang', `beratbarang`='$beratbarang' WHERE `idbarang`='$idbarang'");
+
+    // Redirect to homepage to display updated user in list
+    header("Location: barang.php");
+}
+?>
+
 <!DOCTYPE html>
 <html>
 
@@ -45,7 +60,7 @@ while ($user_data = mysqli_fetch_array($result)) {
                 <div class="collapse navbar-collapse" id="navbarText">
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item mt-2 ">
-                            Hello, 
+                            Hello,
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#"><img src="images/iconprofile.png" width="30px"></a>
@@ -59,7 +74,7 @@ while ($user_data = mysqli_fetch_array($result)) {
                 <h1>Edit Data Barang</h1>
             </div>
 
-            <form name="update_user" method="post" action="">
+            <form name="update_barang" method="post" action="">
                 <table class="table table-bordered w-50 mt-5">
                     <tbody>
                         <tr>
@@ -69,30 +84,31 @@ while ($user_data = mysqli_fetch_array($result)) {
                         <tr>
                             <td>Id Customer</td>
                             <td>
-                                <select name="idcustomer">
+                                <select name="idcustomer" required="">
                                     <option selected>~Pilih ID Customer~</option>
                                     <?php
-                                        $query = mysqli_query($mysqli, "SELECT * FROM customer ORDER BY idcustomer");
-                                        while($data = mysqli_fetch_array($query)) :
+                                    $query = mysqli_query($mysqli, "SELECT * FROM customer ORDER BY idcustomer");
+                                    while ($data = mysqli_fetch_array($query)) :
                                     ?>
-                                        <option value="<?= $data['idcustomer'] ?>"><?= $data['idcustomer'] . " | " . $data['idcustomer']   ?></option>
+                                        <option value="<?= $data['idcustomer'] ?>" <?php if ($data['idcustomer'] == $idcustomer) echo "selected"
+                                                                                    ?>><?= $data['idcustomer'] ?></option>
                                     <?php
-                                        endwhile;
+                                    endwhile;
                                     ?>
                                 </select>
                             </td>
                         </tr>
                         <tr>
                             <td>Nama Barang</td>
-                            <td><input type="text" name="namabarang" required="" value="<?php echo $namabarang; ?>"></td>
+                            <td><input type="text" name="namabarang" required="" value="<?php echo $namabarang ?>"></td>
                         </tr>
                         <tr>
                             <td>Jumlah</td>
-                            <td><input type="text" name="jumlahbarang" required="" value="<?php echo $jumlahbarang; ?>"></td>
+                            <td><input type="text" name="jumlahbarang" required="" value="<?php echo $jumlahbarang ?>"></td>
                         </tr>
                         <tr>
                             <td>Berat</td>
-                            <td><input type="text" name="beratbarang" required="" value="<?php echo $beratbarang; ?>"></td>
+                            <td><input type="text" name="beratbarang" required="" value="<?php echo $beratbarang ?>"></td>
                         </tr>
                         <tr>
                             <td><a href="barang.php" class="btn btn-danger mb-3">Back</a></td> <input type="hidden" name="idbarang" value=<?php echo $_GET['idbarang']; ?>></td>
@@ -102,22 +118,7 @@ while ($user_data = mysqli_fetch_array($result)) {
                     </tbody>
                 </table>
 
-                <?php
-                if (isset($_POST['update'])) {
 
-                    $idbarang = $_POST['idbarang'];
-                    $idcustomer = $_POST['idcustomer'];
-                    $namabarang = $_POST['namabarang'];
-                    $jumlahbarang = $_POST['jumlahbarang'];
-                    $beratbarang = $_POST['beratbarang'];
-
-                    // update user data
-                    $result = mysqli_query($mysqli, "UPDATE `barang` SET `idcustomer`='$idcustomer',`namabarang`='$namabarang', `jumlahbarang`='$jumlahbarang', `beratbarang`='$beratbarang' WHERE `idbarang`='$idbarang'");
-
-                    // Redirect to homepage to display updated user in list
-                    header("Location: barang.php");
-                }
-                ?>
         </div>
 
         <div class="text-footer">

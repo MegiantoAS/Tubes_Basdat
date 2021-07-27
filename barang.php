@@ -30,12 +30,12 @@
     </div>
 
     <div class="main">
-    <nav class="navbar navbar-expand-lg navbar-light bg-custom">
+        <nav class="navbar navbar-expand-lg navbar-light bg-custom">
             <div class="container-fluid">
                 <div class="collapse navbar-collapse" id="navbarText">
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item mt-2 ">
-                            Hello, 
+                            Hello,
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#"><img src="images/iconprofile.png" width="30px"></a>
@@ -51,14 +51,14 @@
                     <a class='btn btn-success' href="barang_tambah.php">Tambah</a>
                 </div>
                 <form class="form-inline method='GET'">
-                <div class="row">
-                    <div class="col-2">
-                        <input class="form-control mt-2" name="cari" type="search" placeholder="Cari Nama Barang" aria-label="Search">
+                    <div class="row">
+                        <div class="col-2">
+                            <input class="form-control mt-2" name="cari" type="search" placeholder="Cari Nama Barang" aria-label="Search">
+                        </div>
+                        <div class="col">
+                            <button class="btn-sm btn-outline-success" type="submit" action="">Cari</button>
+                        </div>
                     </div>
-                    <div class="col">
-                        <button class="btn-sm btn-outline-success" type="submit" action="">Cari</button>
-                    </div>
-                </div>
                 </form>
             </div>
             <br>

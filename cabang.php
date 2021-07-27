@@ -35,7 +35,7 @@
                 <div class="collapse navbar-collapse" id="navbarText">
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item mt-2 ">
-                            Hello, 
+                            Hello,
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#"><img src="images/iconprofile.png" width="30px"></a>
@@ -51,14 +51,14 @@
                     <a class='btn btn-success' href="cabang_tambah.php">Tambah</a>
                 </div>
                 <form class="form-inline method='GET'">
-                <div class="row">
-                    <div class="col-2">
-                        <input class="form-control mt-2" name="cari" type="search" placeholder="Cari Cabang" aria-label="Search">
+                    <div class="row">
+                        <div class="col-2">
+                            <input class="form-control mt-2" name="cari" type="search" placeholder="Cari Cabang" aria-label="Search">
+                        </div>
+                        <div class="col">
+                            <button class="btn-sm btn-outline-success" type="submit" action="">Cari</button>
+                        </div>
                     </div>
-                    <div class="col">
-                        <button class="btn-sm btn-outline-success" type="submit" action="">Cari</button>
-                    </div>
-                </div>
                 </form>
             </div>
             <br>
@@ -66,7 +66,7 @@
                 <tr>
                     <th width=200>ID Cabang</th>
                     <th width=400>Alamat Cabang</th>
-                    <th width=250>No_Telp Cabang</th>
+                    <th width=250>No Telp Cabang</th>
                     <th width=300>Jam Operasional</th>
                     <th width=200>Aksi</th>
                 </tr>

@@ -19,6 +19,25 @@ while ($user_data = mysqli_fetch_array($result)) {
     $uangmuka = $user_data['uangmuka'];
 }
 ?>
+
+<?php
+if (isset($_POST['update'])) {
+
+    $idpembayaran = $_POST['idpembayaran'];
+    $idbarang = $_POST['idbarang'];
+    $idpegawai = $_POST['idpegawai'];
+    $tglterima = $_POST['tglterima'];
+    $totalharga = $_POST['totalharga'];
+    $uangmuka = $_POST['uangmuka'];
+
+    // update user data
+    $result = mysqli_query($mysqli, "UPDATE `pembayaran` SET `idbarang`='$idbarang',`idpegawai`='$idpegawai', `tglterima`='$tglterima', `totalharga`='$totalharga', `uangmuka`='$uangmuka' WHERE `idpembayaran`='$idpembayaran'");
+
+    // Redirect to homepage to display updated user in list
+    header("Location: pembayaran.php");
+}
+?>
+
 <!DOCTYPE html>
 <html>
 
@@ -46,7 +65,7 @@ while ($user_data = mysqli_fetch_array($result)) {
                 <div class="collapse navbar-collapse" id="navbarText">
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item mt-2 ">
-                            Hello, 
+                            Hello,
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#"><img src="images/iconprofile.png" width="30px"></a>
@@ -67,34 +86,40 @@ while ($user_data = mysqli_fetch_array($result)) {
                             <td>Id pembayaran</td>
                             <td><input type="text" name="idpembayaran" value="<?php echo $idpembayaran; ?>" disabled></td>
                         </tr>
-                    <tr>
-                        <td>Id barang</td>
+                        <tr>
+                            <td>Id barang</td>
                             <td>
                                 <select name="idbarang" required="">
                                     <option selected>~Pilih ID Cabang~</option>
                                     <?php
-                                        $query = mysqli_query($mysqli, "SELECT * FROM barang ORDER BY idbarang");
-                                        while($data = mysqli_fetch_array($query)) :
+                                    $query = mysqli_query($mysqli, "SELECT * FROM barang ORDER BY idbarang");
+                                    while ($data = mysqli_fetch_array($query)) :
                                     ?>
-                                        <option value="<?= $data['idbarang'] ?>"><?= $data['idbarang'] . " | " . $data['idbarang']   ?></option>
+                                        <option value="<?= $data['idbarang'] ?>" <?php
+                                                                                    if ($data['idbarang'] == $idbarang)
+                                                                                        echo "selected"
+                                                                                    ?>><?= $data['idbarang'] ?></option>
                                     <?php
-                                        endwhile;
+                                    endwhile;
                                     ?>
                                 </select>
                             </td>
                         </tr>
                         <tr>
-                        <td>Id pegawai</td>
+                            <td>Id pegawai</td>
                             <td>
                                 <select name="idpegawai" required="">
                                     <option selected>~Pilih ID Cabang~</option>
                                     <?php
-                                        $query = mysqli_query($mysqli, "SELECT * FROM pegawai ORDER BY idpegawai");
-                                        while($data = mysqli_fetch_array($query)) :
+                                    $query = mysqli_query($mysqli, "SELECT * FROM pegawai ORDER BY idpegawai");
+                                    while ($data = mysqli_fetch_array($query)) :
                                     ?>
-                                        <option value="<?= $data['idpegawai'] ?>"><?= $data['idpegawai'] . " | " . $data['idpegawai']   ?></option>
+                                        <option value="<?= $data['idpegawai'] ?>" <?php
+                                                                                    if ($data['idpegawai'] == $idpegawai)
+                                                                                        echo "selected"
+                                                                                    ?>><?= $data['idpegawai'] ?></option>
                                     <?php
-                                        endwhile;
+                                    endwhile;
                                     ?>
                                 </select>
                             </td>
@@ -119,24 +144,6 @@ while ($user_data = mysqli_fetch_array($result)) {
                         </tr>
                     </tbody>
                 </table>
-
-                <?php
-                if (isset($_POST['update'])) {
-
-                    $idpembayaran = $_POST['idpembayaran'];
-                    $idbarang = $_POST['idbarang'];
-                    $idpegawai = $_POST['idpegawai'];
-                    $tglterima = $_POST['tglterima'];
-                    $totalharga = $_POST['totalharga'];
-                    $uangmuka = $_POST['uangmuka'];
-
-                    // update user data
-                    $result = mysqli_query($mysqli, "UPDATE `pembayaran` SET `idbarang`='$idbarang',`idpegawai`='$idpegawai', `tglterima`='$tglterima', `totalharga`='$totalharga', `uangmuka`='$uangmuka' WHERE `idpembayaran`='$idpembayaran'");
-
-                    // Redirect to homepage to display updated user in list
-                    header("Location: pembayaran.php");
-                }
-                ?>
         </div>
 
         <div class="text-footer">
