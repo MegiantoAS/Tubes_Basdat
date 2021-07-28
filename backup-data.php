@@ -4,46 +4,53 @@ $host = "localhost"; //host database
 $username = "root"; //user database
 $password = ""; //password database
 $database_name = "laundry"; //nama database
- 
+
 // Get connection object and set the charset
 $conn = mysqli_connect($host, $username, $password, $database_name);
 $conn->set_charset("utf8");
- 
- 
+
+
 // Get All Table Names From the Database
 $tables = array();
 $sql = "SHOW TABLES";
 $result = mysqli_query($conn, $sql);
- 
+
 while ($row = mysqli_fetch_row($result)) {
     $tables[] = $row[0];
 }
+function moveElement(&$array, $a, $b)
+{
+    $out = array_splice($array, $a, 1);
+    array_splice($array, $b, 0, $out);
+}
+moveElement($tables, 2, 0);
 ?>
 
 <?php
 $sqlScript = "";
-foreach ($tables as $table) {
-     
+$index = 1;
+foreach ($tables as $index => $table) {
     // Prepare SQLscript for creating table structure
+
     $query = "SHOW CREATE TABLE $table";
     $result = mysqli_query($conn, $query);
     $row = mysqli_fetch_row($result);
-     
+
     $sqlScript .= "\n\n" . $row[1] . ";\n\n";
-     
-     
+
+
     $query = "SELECT * FROM $table";
     $result = mysqli_query($conn, $query);
-     
+
     $columnCount = mysqli_num_fields($result);
-     
+
     // Prepare SQLscript for dumping data for each table
-    for ($i = 0; $i < $columnCount; $i ++) {
+    for ($i = 0; $i < $columnCount; $i++) {
         while ($row = mysqli_fetch_row($result)) {
             $sqlScript .= "INSERT INTO $table VALUES(";
-            for ($j = 0; $j < $columnCount; $j ++) {
+            for ($j = 0; $j < $columnCount; $j++) {
                 $row[$j] = $row[$j];
-                 
+
                 if (isset($row[$j])) {
                     $sqlScript .= '"' . $row[$j] . '"';
                 } else {
@@ -56,19 +63,18 @@ foreach ($tables as $table) {
             $sqlScript .= ");\n";
         }
     }
-    $sqlScript .= "\n"; 
+    $sqlScript .= "\n";
 }
 ?>
 
 <?php
-if(!empty($sqlScript))
-{
+if (!empty($sqlScript)) {
     // Save the SQL script to a backup file
     $backup_file_name = $database_name . '_backup_' . time() . '.sql';
     $fileHandler = fopen($backup_file_name, 'w+');
     $number_of_lines = fwrite($fileHandler, $sqlScript);
-    fclose($fileHandler); 
- 
+    fclose($fileHandler);
+
     // Download the SQL backup file to the browser
     header('Content-Description: File Transfer');
     header('Content-Type: application/octet-stream');
@@ -81,6 +87,6 @@ if(!empty($sqlScript))
     ob_clean();
     flush();
     readfile($backup_file_name);
-    exec('rm ' . $backup_file_name); 
+    exec('rm ' . $backup_file_name);
 }
 ?>
