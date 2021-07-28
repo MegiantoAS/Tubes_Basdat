@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 26, 2021 at 02:57 AM
+-- Generation Time: Jul 28, 2021 at 04:11 AM
 -- Server version: 10.4.19-MariaDB
 -- PHP Version: 8.0.7
 
@@ -46,7 +46,7 @@ INSERT INTO `barang` (`idbarang`, `idcustomer`, `namabarang`, `jumlahbarang`, `b
 ('B0423', '17556', 'celana jean', 2, 0.5),
 ('B0589', '17894', 'kaos,celana', 2, 0.5),
 ('B0746', '17556', 'kaos,kemeja,jaket', 3, 0.8),
-('B0872', '17894', 'kemeja,dasi,kaos,rok,topi', 5, 1.4);
+('B0872', '12345', 'kemeja,dasi,kaos,rok,topi', 6, 1.4);
 
 -- --------------------------------------------------------
 
@@ -69,7 +69,6 @@ INSERT INTO `cabang` (`idcabang`, `alamatcabang`, `notelpcabang`, `jamoperasiona
 ('078', 'jl.mekar sempurna no.33A', '08216692455', '08.00 - 20.00'),
 ('C45', 'apartemen aston marina ancol ruko 20c', '085214958297', '08.00 - 20.00'),
 ('D22', 'jl.sudirman no.45', '085787942134', '08.00 - 20.00'),
-('H93', 'jl.buah mekar No.12A', '088864581973', '08.00 - 20.00'),
 ('L12', 'jl.Suka bunga no.4/c', '089328492357', '08.00 - 20.00');
 
 -- --------------------------------------------------------
@@ -117,11 +116,11 @@ CREATE TABLE `pegawai` (
 --
 
 INSERT INTO `pegawai` (`idpegawai`, `idcabang`, `namapegawai`, `username`, `password`) VALUES
-('10', 'C45', 'Rahmat', 'Rahmat', 'd3d9446802a44259755d38e6d163e820'),
-('12', 'C45', 'Lusi', 'Lusi', 'c20ad4d76fe97759aa27a0c99bff6710'),
+('12', '078', 'Lusi', 'Lusi', 'c20ad4d76fe97759aa27a0c99bff6710'),
 ('13', 'C45', 'Nanda', 'Nanda', 'c51ce410c124a10e0db5e4b97fc2af39'),
 ('14', 'C45', 'Susan', 'Susan', 'aab3238922bcc25a6f606eb525ffdc56'),
-('16', 'D22', 'Yogi', 'Yogi', 'c74d97b01eae257e44aa9d5bade97baf');
+('16', 'D22', 'Yogi', 'Yogi', 'c74d97b01eae257e44aa9d5bade97baf'),
+('99', 'C45', 'laundry', 'admin', '21232f297a57a5a743894a0e4a801fc3');
 
 -- --------------------------------------------------------
 
@@ -143,7 +142,6 @@ CREATE TABLE `pembayaran` (
 --
 
 INSERT INTO `pembayaran` (`idpembayaran`, `idbarang`, `idpegawai`, `tglterima`, `totalharga`, `uangmuka`) VALUES
-('40215', 'B0145', '10', '2021-05-15', 5000, 5000),
 ('41348', 'B0746', '12', '2021-04-04', 59000, 25000),
 ('41560', 'B0872', '14', '2021-04-02', 92000, 45000),
 ('42162', 'B0423', '12', '2021-04-13', 51000, 30000),

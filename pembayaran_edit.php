@@ -90,7 +90,7 @@ if (isset($_POST['update'])) {
                             <td>Id barang</td>
                             <td>
                                 <select name="idbarang" required="">
-                                    <option selected>~Pilih ID Cabang~</option>
+                                    <option selected>~Pilih ID Barang~</option>
                                     <?php
                                     $query = mysqli_query($mysqli, "SELECT * FROM barang ORDER BY idbarang");
                                     while ($data = mysqli_fetch_array($query)) :
@@ -109,7 +109,7 @@ if (isset($_POST['update'])) {
                             <td>Id pegawai</td>
                             <td>
                                 <select name="idpegawai" required="">
-                                    <option selected>~Pilih ID Cabang~</option>
+                                    <option selected>~Pilih ID Pegawai~</option>
                                     <?php
                                     $query = mysqli_query($mysqli, "SELECT * FROM pegawai ORDER BY idpegawai");
                                     while ($data = mysqli_fetch_array($query)) :

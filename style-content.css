@@ -64,3 +64,11 @@ body {
     font-size: 28px; /* Increased text to enable scrolling */
     padding: 0px 10px;
   }
+
+.main .boxperiodik{
+    position: absolute;
+    left: 880px;
+    top: 80px;
+    width: 600px;
+    height: 150px;
+}

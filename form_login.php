@@ -49,11 +49,11 @@
                             <form method="POST" action="login.php" class="signin-form">
                                 <div class="form-group mb-3">
                                     <label class="label" for="Id_penjual">Username</label>
-                                    <input type="text" class="form-control" name="username" placeholder="Username" required>
+                                    <input type="text" class="form-control" name="username" placeholder="Username" value="admin" required>
                                 </div>
                                 <div class="form-group mb-3">
                                     <label class="label" for="pass">Password</label>
-                                    <input type="password" class="form-control" name="password" placeholder="Password" required>
+                                    <input type="password" class="form-control" name="password" placeholder="Password" value="admin" required>
                                 </div>
                                 <div class="form-group">
                                     <button type="submit" name="TblLogin" value="Login" class="form-control btn btn-primary submit px-3">Login</button>
