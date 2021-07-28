@@ -14,7 +14,7 @@
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
-	<link href="style.css" rel="stylesheet">
+	<link href="style.css?v=1.0" rel="stylesheet">
 </head>
 
 <body>
@@ -49,7 +49,7 @@
 					<h1>MyLaundry<br />
 						<h3>Hadir Untuk Membantu Anda</h3>
 					</h1>
-					<button class="btn1 mt-2 " href="#"><a>Sign In</button>
+					<a class="btn1 mt-2 " href="form_login.php"> <label>Sign In</label></a>
 					<img src="./images/Group 13.png" alt="Paris" width="300" height="300">
 				</div>
 			</div>

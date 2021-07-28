@@ -10,7 +10,7 @@
   width: 687px;
   height: 646px;
   left: 591px;
-  top: 190px;
+  top: 114px;
 }
 .main h1 {
   color: #2e5ea0;
@@ -20,7 +20,7 @@
   width: 441px;
   height: 102px;
   left: 120px;
-  top: 433px;
+  top: 300px;
   font-size: 54px;
   font-weight: 600;
   object-position: 80%;
@@ -36,7 +36,7 @@
   width: 353px;
   height: 39px;
   left: 112px;
-  top: 538px;
+  top: 380px;
   color: #2e5ea0;
 }
 
@@ -45,7 +45,7 @@
   width: 133px;
   height: 57px;
   left: 188px;
-  top: 598px;
+  top: 415px;
   border: none;
   outline: none;
   background-color: #3662a1;
@@ -53,6 +53,11 @@
   font-weight: 800;
   font-family: 'Rubik', sans-serif;
   border-radius: 18px;
+}
+a label{
+  position: absolute;
+  margin-top:18px ;
+  margin-left: 30px;
 }
 
 .navbar-nav a {
