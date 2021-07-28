@@ -1,4 +1,10 @@
 <?php
+session_start();
+if (!isset($_SESSION['username'])) {
+    header('location:login.php');
+}
+?>
+<?php
 include_once("connection.php");
 
 ?>
@@ -41,7 +47,10 @@ while ($user_data = mysqli_fetch_array($result)) {
         <nav class="navbar navbar-expand-lg navbar-light bg-custom">
             <div class="container-fluid">
                 <div class="collapse navbar-collapse" id="navbarText">
-                    <ul class="navbar-nav ms-auto">
+                   <ul class="navbar-nav ms-auto">
+                        <li class="nav-item mt-2 ">
+                            Hello,  <?php echo $_SESSION['namapegawai'] ?>
+                        </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#"><img src="images/iconprofile.png" width="30px"></a>
                         </li>

@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 28, 2021 at 04:11 AM
--- Server version: 10.4.19-MariaDB
--- PHP Version: 8.0.7
+-- Generation Time: Jul 28, 2021 at 05:44 AM
+-- Server version: 10.4.20-MariaDB
+-- PHP Version: 7.4.21
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -120,7 +120,7 @@ INSERT INTO `pegawai` (`idpegawai`, `idcabang`, `namapegawai`, `username`, `pass
 ('13', 'C45', 'Nanda', 'Nanda', 'c51ce410c124a10e0db5e4b97fc2af39'),
 ('14', 'C45', 'Susan', 'Susan', 'aab3238922bcc25a6f606eb525ffdc56'),
 ('16', 'D22', 'Yogi', 'Yogi', 'c74d97b01eae257e44aa9d5bade97baf'),
-('99', 'C45', 'laundry', 'admin', '21232f297a57a5a743894a0e4a801fc3');
+('99', 'C45', 'Admin', 'admin', '21232f297a57a5a743894a0e4a801fc3');
 
 -- --------------------------------------------------------
 

@@ -1,4 +1,10 @@
 <?php
+session_start();
+if (!isset($_SESSION['username'])) {
+    header('location:login.php');
+}
+?>
+<?php
 include_once("connection.php");
 ?>
 <!DOCTYPE html>
@@ -47,19 +53,22 @@ include_once("connection.php");
     <div class="sidenav">
         <a href="dashboard.php"><img src="images/Group 11.png"></a><br>
         <br><br><br><br><br>
-        <label><a href="customer.php">Customer</a></label>
+        <a href="customer.php">Customer</a>
         <a href="pegawai.php">Pegawai</a>
         <a href="barang.php">Barang</a>
         <a href="cabang.php">Cabang</a>
-        <a href="pembayaran.php">Pembayaran</a>
-        <button type="button" class="btn btn-danger mx-5 col-8">Logout</button>
+        <label><a href="pembayaran.php">Pembayaran</a></label>
+       <a onclick="return confirm('anda yakin ingin keluar?')" class="btn btn-danger mx-5 col-8" href="logout.php">Logout</a>
     </div>
 
     <div class="main">
         <nav class="navbar navbar-expand-lg navbar-light bg-custom">
             <div class="container-fluid">
                 <div class="collapse navbar-collapse" id="navbarText">
-                    <ul class="navbar-nav ms-auto">
+                   <ul class="navbar-nav ms-auto">
+                        <li class="nav-item mt-2 ">
+                            Hello,  <?php echo $_SESSION['namapegawai'] ?>
+                        </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#"><img src="images/iconprofile.png" width="30px"></a>
                         </li>
@@ -69,7 +78,7 @@ include_once("connection.php");
         </nav>
         <div class="container">
             <div id="banner">
-                <h1>Tambah Cabang</h1>
+                <h1>Tambah Pembayaran</h1>
             </div>
             <form name="update_cabang" method="post" action="" onsubmit="return validasidata()">
                 <table class="table table-bordered w-50 mt-5 justify-content-center">

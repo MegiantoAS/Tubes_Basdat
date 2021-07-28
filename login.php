@@ -12,8 +12,8 @@ $cek = mysqli_num_rows($result);
 if ($cek > 0) {
     $data = mysqli_fetch_assoc($result);
     session_start();
+    $_SESSION["namapegawai"] = $data["namapegawai"];
     $_SESSION["username"] = $data["username"];
-    $_SESSION["nama"] = $data["nama"];
     header("location:dashboard.php");
 } else {
     header("location:form_login.php?pesan=Gagal login data tidak ditemukan!");

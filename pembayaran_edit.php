@@ -1,4 +1,10 @@
 <?php
+session_start();
+if (!isset($_SESSION['username'])) {
+    header('location:login.php');
+}
+?>
+<?php
 include_once("connection.php");
 
 ?>
@@ -51,11 +57,11 @@ if (isset($_POST['update'])) {
     <div class="sidenav">
         <a href="dashboard.php"><img src="images/Group 11.png"></a><br>
         <br><br><br><br><br>
-        <label><a href="customer.php">Customer</a></label>
+        <a href="customer.php">Customer</a>
         <a href="pegawai.php">Pegawai</a>
         <a href="barang.php">Barang</a>
         <a href="cabang.php">Cabang</a>
-        <a href="pembayaran.php">Pembayaran</a>
+        <label><a href="pembayaran.php">Pembayaran</a></label>
         <a onclick="return confirm('anda yakin ingin keluar?')" class="btn btn-danger mx-5 col-8" href="logout.php">Logout</a>
     </div>
 
@@ -65,7 +71,7 @@ if (isset($_POST['update'])) {
                 <div class="collapse navbar-collapse" id="navbarText">
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item mt-2 ">
-                            Hello,
+                            Hello,  <?php echo $_SESSION['namapegawai'] ?>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#"><img src="images/iconprofile.png" width="30px"></a>
@@ -76,7 +82,7 @@ if (isset($_POST['update'])) {
         </nav>
         <div class="container">
             <div id="banner">
-                <h1>Edit Data pembayaran</h1>
+                <h1>Edit Data Pembayaran</h1>
             </div>
 
             <form name="update_user" method="post" action="">

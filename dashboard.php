@@ -1,4 +1,10 @@
 <?php
+session_start();
+if (!isset($_SESSION['username'])) {
+    header('location:login.php');
+}
+?>
+<?php
 include_once("connection.php");
 
 // get count customer
@@ -27,7 +33,7 @@ $dataPembayaran = mysqli_fetch_assoc($result);
 
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="dashboard.css?v=2.1">
+    <link rel="stylesheet" href="dashboard.css?v=2.2">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <title>MyLaundry | Dashboard</title>
 </head>
@@ -49,6 +55,9 @@ $dataPembayaran = mysqli_fetch_assoc($result);
             <div class="container-fluid">
                 <div class="collapse navbar-collapse" id="navbarText">
                     <ul class="navbar-nav ms-auto">
+                        <li class="nav-item mt-2 ">
+                            Hello,  <?php echo $_SESSION['namapegawai'] ?>
+                        </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#"><img src="images/iconprofile.png" width="30px"></a>
                         </li>
@@ -58,23 +67,32 @@ $dataPembayaran = mysqli_fetch_assoc($result);
         </nav>
 
         <div class="box1">
-            Box 1 <br><img src="images/box1.png" width="300px">
-            <button type="button" class="btn btn-success col-2">Backup Data</button>
+            <p>
+                Hello, <?php echo $_SESSION['namapegawai'] ?><br><img src="images/box1.png" width="300px">
+                <a href="backup-data.php">
+                    <button type="button" class="btn btn-success col-10">Backup Data</button>
+                </a>
+            </p>
         </div>
         <div class="box2">
-            <p>Terdapat</p><label><br><?php echo $dataCustomer['total']; ?></label><p><br>Orang Customer</p>
+            <p>Terdapat</p><label><br><?php echo $dataCustomer['total']; ?></label>
+            <p><br>Orang Customer</p>
         </div>
         <div class="box3">
-            <p>Terdapat</p><label><br><?php echo $dataPegawai['total']; ?></label><p><br>Orang Pegawai</p>
+            <p>Terdapat</p><label><br><?php echo $dataPegawai['total']; ?></label>
+            <p><br>Orang Pegawai</p>
         </div>
         <div class="box4">
-            <p>Terdapat</p><label><br><?php echo $dataBarang['total']; ?></label><p><br>Data Barang</p>
+            <p>Terdapat</p><label><br><?php echo $dataBarang['total']; ?></label>
+            <p><br>Data Barang</p>
         </div>
         <div class="box5">
-            <p>Terdapat</p><label><br><?php echo $dataCabang['total']; ?></label><p><br>Data Cabang</p>
+            <p>Terdapat</p><label><br><?php echo $dataCabang['total']; ?></label>
+            <p><br>Data Cabang</p>
         </div>
         <div class="box6">
-            <p>Terdapat</p><label><br><?php echo $dataPembayaran['total']; ?></label><p><br>Data Pembayaran</p>
+            <p>Terdapat</p><label><br><?php echo $dataPembayaran['total']; ?></label>
+            <p><br>Data Pembayaran</p>
         </div>
     </div>
     <div class="text-footer">

@@ -115,6 +115,12 @@ body {
   color: #000000;
 }
 
+.main .box1 p{
+  position:absolute;
+  margin-left: 10px;
+}
+ 
+
 .main .box3 {
   width: 150px;
   height: 160px;

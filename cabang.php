@@ -1,3 +1,9 @@
+<?php
+session_start();
+if (!isset($_SESSION['username'])) {
+    header('location:login.php');
+}
+?>
 <!DOCTYPE html>
 <html>
 
@@ -35,7 +41,7 @@
                 <div class="collapse navbar-collapse" id="navbarText">
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item mt-2 ">
-                            Hello,
+                            Hello,  <?php echo $_SESSION['namapegawai'] ?>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#"><img src="images/iconprofile.png" width="30px"></a>

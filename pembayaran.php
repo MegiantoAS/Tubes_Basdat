@@ -1,9 +1,15 @@
+<?php
+session_start();
+if (!isset($_SESSION['username'])) {
+    header('location:login.php');
+}
+?>
 <!DOCTYPE html>
 <html>
 
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="style-content.css?v=1.4">
+    <link rel="stylesheet" href="style-content.css?v=1.5">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <?php
     //fungsi untuk menampilkan hasil pencarian
@@ -55,9 +61,9 @@
         <nav class="navbar navbar-expand-lg navbar-light bg-custom">
             <div class="container-fluid">
                 <div class="collapse navbar-collapse" id="navbarText">
-                    <ul class="navbar-nav ms-auto">
+                   <ul class="navbar-nav ms-auto">
                         <li class="nav-item mt-2 ">
-                            Hello,
+                            Hello,  <?php echo $_SESSION['namapegawai'] ?>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#"><img src="images/iconprofile.png" width="30px"></a>
@@ -92,13 +98,13 @@
             <br><br>
             <table class="table table-bordered text-center">
                 <tr>
-                    <th width=250>ID Pembayaran</th>
-                    <th width=170>ID Barang</th>
-                    <th width=180>ID Pegawai</th>
-                    <th width=180>Tgl Terima</th>
-                    <th width=200>Total Harga</th>
-                    <th width=200>Uang Muka</th>
-                    <th width=200>Aksi</th>
+                    <th width=100>ID Pembayaran</th>
+                    <th width=100>ID Barang</th>
+                    <th width=100>ID Pegawai</th>
+                    <th width=100>Tgl Terima</th>
+                    <th width=150>Total Harga</th>
+                    <th width=150>Uang Muka</th>
+                    <th width=150>Aksi</th>
                 </tr>
                 <?php
                 while ($user_data = mysqli_fetch_array($result)) {
