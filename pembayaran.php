@@ -17,9 +17,9 @@ if (!isset($_SESSION['username'])) {
 
     if (isset($_GET['cari'])) {
         $cari = $_GET['cari'];
-        $result = mysqli_query($mysqli, "SELECT * FROM pembayaran where idpembayaran like'%" . $cari . "%'");
+        $result = mysqli_query($mysqli, "SELECT * FROM pembayaran a JOIN pegawai b ON a.idpegawai = b.idpegawai where idpembayaran like '%" . $cari . "%'");
     } else {
-        $result = mysqli_query($mysqli, "SELECT * FROM pembayaran");
+        $result = mysqli_query($mysqli, "SELECT * FROM pembayaran a JOIN pegawai b ON a.idpegawai = b.idpegawai");
     }
     ?>
 
@@ -33,14 +33,11 @@ if (!isset($_SESSION['username'])) {
 
         if (!empty($tanggalawal) && !empty($tanggalakhir)) {
             // perintah tampil data berdasarkan range tanggal
-            $result = mysqli_query($mysqli, "SELECT * FROM pembayaran WHERE tglterima BETWEEN '$tanggalawal' and '$tanggalakhir'");
+            $result = mysqli_query($mysqli, "SELECT * FROM pembayaran a JOIN pegawai b ON a.idpegawai = b.idpegawai WHERE tglterima BETWEEN '$tanggalawal' and '$tanggalakhir'");
         } else {
             // perintah tampil semua data
             $result = mysqli_query($mysqli, "SELECT * FROM pembayaran a JOIN pegawai b ON a.idpegawai = b.idpegawai");
         }
-    } else {
-        // perintah tampil semua data
-        $result = mysqli_query($mysqli, "SELECT * FROM pembayaran a JOIN pegawai b ON a.idpegawai = b.idpegawai");
     }
     ?>
 </head>
