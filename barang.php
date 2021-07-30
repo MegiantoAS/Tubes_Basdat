@@ -18,7 +18,7 @@ if (!isset($_SESSION['username'])) {
         $cari = $_GET['cari'];
         $result = mysqli_query($mysqli, "SELECT * FROM barang where namabarang like'%" . $cari . "%'");
     } else {
-        $result = mysqli_query($mysqli, "SELECT * FROM barang ORDER BY namabarang ASC");
+        $result = mysqli_query($mysqli, "SELECT * FROM barang a JOIN customer b ON a.idcustomer = b.idcustomer ORDER BY namabarang ASC");
     }
     ?>
 </head>
@@ -39,15 +39,15 @@ if (!isset($_SESSION['username'])) {
         <nav class="navbar navbar-expand-lg navbar-light bg-custom">
             <div class="container-fluid">
                 <div class="collapse navbar-collapse" id="navbarText">
-                   <ul class="navbar-nav ms-auto">
+                    <ul class="navbar-nav ms-auto">
                         <li class="nav-item mt-2 ">
-                            Hello,  <?php echo $_SESSION['namapegawai'] ?>
+                            Hello, <?php echo $_SESSION['namapegawai'] ?>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#"><img src="images/iconprofile.png" width="30px"></a>
                         </li>
                     </ul>
-            </div>
+                </div>
         </nav>
 
         <div class="container">
@@ -70,7 +70,7 @@ if (!isset($_SESSION['username'])) {
             <table class="table table-bordered text-center">
                 <tr>
                     <th width=150>ID Barang</th>
-                    <th width=200>ID Customer</th>
+                    <th width=200>Nama Customer</th>
                     <th width=250>Nama Barang</th>
                     <th width=100>Jumlah</th>
                     <th width=100>Berat</th>
@@ -84,7 +84,7 @@ if (!isset($_SESSION['username'])) {
                             <center><?= $user_data['idbarang'] ?></center>
                         </td>
                         <td>
-                            <center><?= $user_data['idcustomer'] ?></center>
+                            <center><?= $user_data['namacustomer'] ?></center>
                         </td>
                         <td>
                             <center><?= $user_data['namabarang'] ?></center>

@@ -30,18 +30,18 @@ if (!isset($_SESSION['username'])) {
     if (isset($_POST['submit'])) {
         $tanggalawal = $_POST['tanggalawal'];
         $tanggalakhir = $_POST['tanggalakhir'];
-       
+
         if (!empty($tanggalawal) && !empty($tanggalakhir)) {
-         // perintah tampil data berdasarkan range tanggal
-         $result = mysqli_query($mysqli, "SELECT * FROM pembayaran WHERE tglterima BETWEEN '$tanggalawal' and '$tanggalakhir'"); 
+            // perintah tampil data berdasarkan range tanggal
+            $result = mysqli_query($mysqli, "SELECT * FROM pembayaran WHERE tglterima BETWEEN '$tanggalawal' and '$tanggalakhir'");
         } else {
-         // perintah tampil semua data
-         $result = mysqli_query($mysqli, "SELECT * FROM pembayaran"); 
+            // perintah tampil semua data
+            $result = mysqli_query($mysqli, "SELECT * FROM pembayaran a JOIN pegawai b ON a.idpegawai = b.idpegawai");
         }
-       } else {
+    } else {
         // perintah tampil semua data
-        $result = mysqli_query($mysqli, "SELECT * FROM pembayaran");
-       }
+        $result = mysqli_query($mysqli, "SELECT * FROM pembayaran a JOIN pegawai b ON a.idpegawai = b.idpegawai");
+    }
     ?>
 </head>
 
@@ -61,9 +61,9 @@ if (!isset($_SESSION['username'])) {
         <nav class="navbar navbar-expand-lg navbar-light bg-custom">
             <div class="container-fluid">
                 <div class="collapse navbar-collapse" id="navbarText">
-                   <ul class="navbar-nav ms-auto">
+                    <ul class="navbar-nav ms-auto">
                         <li class="nav-item mt-2 ">
-                            Hello,  <?php echo $_SESSION['namapegawai'] ?>
+                            Hello, <?php echo $_SESSION['namapegawai'] ?>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#"><img src="images/iconprofile.png" width="30px"></a>
@@ -74,7 +74,9 @@ if (!isset($_SESSION['username'])) {
         </nav>
         <div class="boxperiodik">
             <form method="POST" action="" class="form-inline mt-3">
-                <center><p>Tampilkan Dalam Rentan Waktu</p></center>
+                <center>
+                    <p>Tampilkan Dalam Rentan Waktu</p>
+                </center>
                 <center><input type="date" name="tanggalawal"> s/d <input type="date" name="tanggalakhir"> <button type="submit" name="submit" class="btn btn-success btn-lg mb-2">Tampilkan</button></center>
             </form>
         </div>
@@ -100,7 +102,7 @@ if (!isset($_SESSION['username'])) {
                 <tr>
                     <th width=100>ID Pembayaran</th>
                     <th width=100>ID Barang</th>
-                    <th width=100>ID Pegawai</th>
+                    <th width=100>Nama Pegawai</th>
                     <th width=100>Tgl Terima</th>
                     <th width=150>Total Harga</th>
                     <th width=150>Uang Muka</th>
@@ -117,7 +119,7 @@ if (!isset($_SESSION['username'])) {
                             <center> <?= $user_data['idbarang']; ?></center>
                         </td>
                         <td>
-                            <center><?= $user_data['idpegawai']; ?></center>
+                            <center><?= $user_data['namapegawai']; ?></center>
                         </td>
                         <td>
                             <center><?= $user_data['tglterima']; ?></center>
