@@ -122,7 +122,7 @@ include_once("connection.php");
                         </tr>
                         <tr>
                             <td>Tanggal Terima</td>
-                            <td><input type="text" name="tglterima"></td>
+                            <td><input type="date" name="tglterima"></td>
                         </tr>
                         <tr>
                             <td>Total Harga</td>

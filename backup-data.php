@@ -1,16 +1,16 @@
 <?php
-// Database configuration
-$host = "localhost"; //host database
-$username = "root"; //user database
-$password = ""; //password database
-$database_name = "laundry"; //nama database
+            // Database configuration
+                $host = "localhost"; //host database
+                $username = "root"; //user database
+                $password = ""; //password database
+                $database_name = "laundry"; //nama database
 
 // Get connection object and set the charset
-$conn = mysqli_connect($host, $username, $password, $database_name);
-$conn->set_charset("utf8");
+            $conn = mysqli_connect($host, $username, $password, $database_name);
+            $conn->set_charset("utf8");
 
 
-// Get All Table Names From the Database
+    // Get All Table Names From the Database
 $tables = array();
 $sql = "SHOW TABLES";
 $result = mysqli_query($conn, $sql);

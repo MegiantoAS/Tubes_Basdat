@@ -27,13 +27,6 @@
 					<li class="nav-item active">
 						<a class="nav-link" href="form_login.php" type="submit">Sign In</a>
 					</li>
-					<li class="nav-item active">
-						<a class="nav-link" href="#">About</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="#">Contact</a>
-					</li>
-
 				</ul>
 			</div>
 		</div>

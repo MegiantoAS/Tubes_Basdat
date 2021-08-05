@@ -133,14 +133,14 @@ if (isset($_POST['update'])) {
 
                         <tr>
                             <td>tgl terima</td>
-                            <td><input type="text" name="tglterima" required="" value="<?php echo $tglterima; ?>"></td>
+                            <td><input type="date" name="tglterima" required="" value="<?php echo $tglterima; ?>"></td>
                         </tr>
                         <tr>
                             <td>total harga</td>
                             <td><input type="text" name="totalharga" required="" value="<?php echo $totalharga; ?>"></td>
                         </tr>
                         <tr>
-                            <td>tgl terima</td>
+                            <td>uang muka</td>
                             <td><input type="text" name="uangmuka" required="" value="<?php echo $uangmuka; ?>"></td>
                         </tr>
                         <tr>
